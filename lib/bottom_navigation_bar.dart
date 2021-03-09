@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-/*import 'package:glove_control/pages/bluetooth.dart';
-import 'package:glove_control/pages/settings.dart';*/
+import 'package:glove_control/pages/bluetooth.dart';
+//import 'package:glove_control/pages/settings.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart' ;
@@ -23,8 +23,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         return Text('2');
         //return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
       default:
-        return Text('3');
-        //return Bluetooth();
+        return Bluetooth();
     }
   }
 
@@ -60,19 +59,17 @@ class _BottomNavigationState extends State<BottomNavigation> {
         centerTitle: true,
         backgroundColor: Color(0XFF67d0c6),
         elevation: 0,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
-        ),
       ),
       body: SafeArea(
         child: getBody(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.black,
         iconSize: 50,
         selectedFontSize: 20,
+        backgroundColor: Colors.grey[300],
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -80,23 +77,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
               color: _currentIndex == 0 ? Colors.blue[900] : Colors.black,
             ),
             label: 'bluetoothNavTitle'.tr(),
-            backgroundColor: Color(0XFF67d0c6),
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.wb_incandescent,
-              color: _currentIndex == 1 ? Colors.yellow : Colors.black,
+              Icons.av_timer,
+              color: _currentIndex == 1 ? Colors.red : Colors.black,
             ),
             label: 'dashboardNavTitle'.tr(),
-            backgroundColor: Colors.blue[200],
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
-              color: _currentIndex == 2 ? Colors.grey[600] : Colors.black,
+              color: _currentIndex == 2 ? Colors.grey[700] : Colors.black,
             ),
             label: 'settingsNavTitle'.tr(),
-            backgroundColor: Colors.blue[200],
           ),
         ],
         onTap: (index){
