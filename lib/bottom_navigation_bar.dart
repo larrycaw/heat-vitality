@@ -48,7 +48,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     ]);
 
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           'appTitle'.tr(),
@@ -58,7 +58,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue[200],
+        backgroundColor: Color(0XFF67d0c6),
         elevation: 0,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
@@ -80,7 +80,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               color: _currentIndex == 0 ? Colors.blue[900] : Colors.black,
             ),
             label: 'bluetoothNavTitle'.tr(),
-            backgroundColor: Colors.blue[200],
+            backgroundColor: Color(0XFF67d0c6),
           ),
           BottomNavigationBarItem(
             icon: Icon(
