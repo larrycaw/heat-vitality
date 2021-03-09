@@ -71,7 +71,7 @@ class _BluetoothState extends State<Bluetooth> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'myDevicesLabel'.tr(),
+                    'myDevices'.tr(),
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -115,7 +115,7 @@ class _BluetoothState extends State<Bluetooth> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'otherDevicesLabel'.tr(),
+                    'otherDevices'.tr(),
                     style: TextStyle(
                       fontSize: 20,
                     ),

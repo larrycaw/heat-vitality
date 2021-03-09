@@ -30,7 +30,7 @@ class _SettingsState extends State<Settings> {
                     children: [
                       SizedBox(width: 25),
                       Text(
-                        "darkModeLabel".tr() + ":",
+                        "darkMode".tr() + ":",
                         style: TextStyle(
                           fontSize: 24,
                         ),
@@ -72,7 +72,7 @@ class _SettingsState extends State<Settings> {
                     children: [
                       SizedBox(width: 25),
                       Text(
-                        ('LanguageLabel').tr() + ":",
+                        ('language').tr() + ":",
                         style: TextStyle(
                           fontSize: 24,
                         ),

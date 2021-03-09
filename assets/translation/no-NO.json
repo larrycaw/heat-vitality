@@ -3,18 +3,21 @@
   "appTitle": "HeatVitality",
 
   "bluetoothNavTitle": "Bluetooth",
-  "myDevicesLabel": "Mine Enheter",
-  "otherDevicesLabel": "Andre Enheter",
+  "myDevices": "Mine Enheter",
+  "otherDevices": "Andre Enheter",
   "connected": "Tilkoblet",
   "notConnected": "Ikke tilkoblet",
 
+  "about": "Om",
+  "title": "Tittel",
+  "description": "Beskrivelse",
+  "forgetDevice": "Glem denne enheten",
+
   "dashboardNavTitle": "Dashbord",
-  "LEDButtonOn": "PÅ",
-  "LEDButtonOff": "AV",
 
   "settingsNavTitle": "Innstillinger",
-  "darkModeLabel": "Mørk modus",
+  "darkMode": "Mørk modus",
   "darkModeOn": "På",
   "darkModeOff": "Av",
-  "LanguageLabel": "Språk"
+  "language": "Språk"
 }

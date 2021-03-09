@@ -3,18 +3,21 @@
   "appTitle": "HeatVitality",
 
   "bluetoothNavTitle": "Bluetooth",
-  "myDevicesLabel": "My Devices",
-  "otherDevicesLabel": "Other Devices",
+  "myDevices": "My Devices",
+  "otherDevices": "Other Devices",
   "connected": "Connected",
   "notConnected": "Not connected",
 
-  "dashboardNavTitle": "Dashbord",
-  "LEDButtonOn": "ON",
-  "LEDButtonOff": "OFF",
+  "about": "About",
+  "title": "Title",
+  "description": "Description",
+  "forgetDevice": "Forget this device",
+
+  "dashboardNavTitle": "Dashboard",
 
   "settingsNavTitle": "Settings",
-  "darkModeLabel": "Dark mode",
+  "darkMode": "Dark mode",
   "darkModeOn": "On",
   "darkModeOff": "Off",
-  "LanguageLabel": "Language"
+  "language": "Language"
 }

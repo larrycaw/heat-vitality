@@ -64,7 +64,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               child: Row(
                 children: [
                   Text(
-                    'About',
+                    'about'.tr(),
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -95,7 +95,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 child: Row(
                   children: [
                     Text(
-                      'Title',
+                      'title'.tr(),
                       style: TextStyle(
                         fontSize: 17,
                       ),
@@ -140,7 +140,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 child: Row(
                   children: [
                     Text(
-                      'Description',
+                      'description'.tr(),
                       style: TextStyle(
                         fontSize: 17,
                       ),
@@ -189,7 +189,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 child: Row(
                   children: [
                     Text(
-                      'Forget this device',
+                      'forgetDevice'.tr(),
                       style: TextStyle(
                           fontSize: 17,
                           color: Colors.red[700]
