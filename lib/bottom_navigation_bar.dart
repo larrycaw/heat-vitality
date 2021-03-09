@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glove_control/pages/bluetooth.dart';
-//import 'package:glove_control/pages/settings.dart';
+import 'package:glove_control/pages/settings.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart' ;
@@ -20,8 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         return Text('1');
         //return Controls();  // controls..
       case 2:
-        return Text('2');
-        //return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
+        return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
       default:
         return Bluetooth();
     }
