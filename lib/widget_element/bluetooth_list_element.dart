@@ -48,7 +48,7 @@ class BtListElement extends StatelessWidget {
           onConnectingStateChange(getIsConnected());
         },
         style: ElevatedButton.styleFrom(
-          primary: Colors.amber,
+          primary: Colors.white,
           onPrimary: Colors.black,
           onSurface: Colors.grey,
         ),
@@ -87,8 +87,8 @@ class BtListElement extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 isConnecting ?
-                SpinKitSpinningCircle(
-                  color: Colors.grey[800],
+                SpinKitRing(//SpinKitPumpingHeart
+                  color: Color(0XFF67d0c6),
                   size: 25.0,
                 ) :
                 Text(
