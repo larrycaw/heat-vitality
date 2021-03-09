@@ -9,16 +9,6 @@ class AboutBluetoothDevice extends StatefulWidget {
 
 class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
 
-  void updateBluetoothDevice() {
-    Navigator.pop(context, {
-      'forgetDevice': false,
-      'title': 'ttl',
-      'description': 'desc',
-    });
-    print('');
-    print('Back-button pressed');
-  }
-
   void forgetBluetoothDevice() {
     print('Context $context');
     Navigator.pop(context, {
@@ -40,9 +30,8 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
     return Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-            onPressed: () => updateBluetoothDevice(), //Navigator.of(context).pop(),
+          leading: BackButton(
+            color: Colors.black,
           ),
           title: Text(
             'appTitle'.tr(),

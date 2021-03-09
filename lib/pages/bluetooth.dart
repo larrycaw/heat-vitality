@@ -52,10 +52,12 @@ class _BluetoothState extends State<Bluetooth> {
 
   void addMyDevice(String key) {
     bluetoothDevices[key]['myDevice'] = true;
+    print('Device added');
   }
 
   void forgetMyDevice(String key) {
     bluetoothDevices[key]['myDevice'] = false;
+    print('Device forgotten');
   }
 
 
@@ -102,10 +104,10 @@ class _BluetoothState extends State<Bluetooth> {
                     iconImage: bluetoothDevices[key]['iconImage'],
                     onConnectingStateChange: (bool isConnected) =>
                     isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
-                    onAddDevice: () =>
-                        setState(() => addMyDevice(key)),
                     onForgetDevice: () =>
                         setState(() => forgetMyDevice(key)),
+                    onUpdateBluetoothDevice: () =>
+                        setState(() => print('Updated bt device')),
                   ),
             ],
           ),
@@ -147,8 +149,6 @@ class _BluetoothState extends State<Bluetooth> {
                       isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
                       onAddDevice: () =>
                           setState(() => addMyDevice(key)),
-                      onForgetDevice: () =>
-                          setState(() => forgetMyDevice(key)),
                     ),
               ],
             ),
