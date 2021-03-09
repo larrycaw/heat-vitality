@@ -79,7 +79,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.device_thermostat,
+              Icons.speed,//device_thermostat?
               color: _currentIndex == 1 ? Colors.red[600] : Colors.black,
             ),
             label: 'dashboardNavTitle'.tr(),
