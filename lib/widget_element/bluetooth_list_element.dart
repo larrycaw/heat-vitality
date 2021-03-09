@@ -42,7 +42,7 @@ class BtListElement extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 4),
       height: 60,
-      child: ElevatedButton(
+      child: TextButton(
         onPressed: () {
           print('Bt element tapped');
           onConnectingStateChange(getIsConnected());
@@ -87,7 +87,7 @@ class BtListElement extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 isConnecting ?
-                SpinKitRing(//SpinKitPumpingHeart
+                SpinKitRing(//SpinKitPumpingHeart / SpinKitFadingCube
                   color: Color(0XFF67d0c6),
                   size: 25.0,
                 ) :
