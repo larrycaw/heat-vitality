@@ -8,8 +8,8 @@ class BtListElement extends StatelessWidget {
   final bool myDeviceState;
   final bool isConnected;
   final Function(bool) onConnectingStateChange;
-  final VoidCallback onOtherDeviceChange;
-  final VoidCallback onMyDeviceStateChange;
+  final VoidCallback onAddDevice;
+  final VoidCallback onForgetDevice;
   final String title;
   final String description;
   final bool isConnecting;
@@ -20,8 +20,8 @@ class BtListElement extends StatelessWidget {
     @required this.myDeviceState,
     @required this.isConnected,
     @required this.onConnectingStateChange,
-    @required this.onOtherDeviceChange,
-    @required this.onMyDeviceStateChange,
+    @required this.onAddDevice,
+    @required this.onForgetDevice,
     this.title = 'Bluetooth device',
     this.description = 'Unknown',
     this.isConnecting = false,
@@ -115,10 +115,10 @@ class BtListElement extends StatelessWidget {
                     );
                     if(result != null) {
                       // switch
-                      if (result['forgetDevice']) onMyDeviceStateChange();
+                      if (result['forgetDevice']) onForgetDevice();
                       else print(result['title']);
                     }
-                  } else if (!getMyDeviceState()) onOtherDeviceChange();
+                  } else if (!getMyDeviceState()) onAddDevice();
                 },
                 child: getMyDeviceState() ? Icon(Icons.arrow_forward_ios, size: 25,) : Icon(Icons.add, size: 30,)
             ),

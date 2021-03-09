@@ -50,6 +50,14 @@ class _BluetoothState extends State<Bluetooth> {
     });
   }
 
+  void addMyDevice(String key) {
+    bluetoothDevices[key]['myDevice'] = true;
+  }
+
+  void forgetMyDevice(String key) {
+    bluetoothDevices[key]['myDevice'] = false;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -94,12 +102,10 @@ class _BluetoothState extends State<Bluetooth> {
                     iconImage: bluetoothDevices[key]['iconImage'],
                     onConnectingStateChange: (bool isConnected) =>
                     isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
-                    onOtherDeviceChange: () =>
-                        setState(() =>
-                        bluetoothDevices[key]['myDevice'] = true),
-                    onMyDeviceStateChange: () =>
-                        setState(() =>
-                        bluetoothDevices[key]['myDevice'] = false),
+                    onAddDevice: () =>
+                        setState(() => addMyDevice(key)),
+                    onForgetDevice: () =>
+                        setState(() => forgetMyDevice(key)),
                   ),
             ],
           ),
@@ -139,12 +145,10 @@ class _BluetoothState extends State<Bluetooth> {
                       iconImage: bluetoothDevices[key]['iconImage'],
                       onConnectingStateChange: (bool isConnected) =>
                       isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
-                      onOtherDeviceChange: () =>
-                          setState(() =>
-                          bluetoothDevices[key]['myDevice'] = true),
-                      onMyDeviceStateChange: () =>
-                          setState(() =>
-                          bluetoothDevices[key]['myDevice'] = false),
+                      onAddDevice: () =>
+                          setState(() => addMyDevice(key)),
+                      onForgetDevice: () =>
+                          setState(() => forgetMyDevice(key)),
                     ),
               ],
             ),
