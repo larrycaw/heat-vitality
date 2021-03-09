@@ -1,0 +1,20 @@
+{
+  "currentLanguage": "English",
+  "appTitle": "LED Controller",
+
+  "bluetoothNavTitle": "Bluetooth",
+  "myDevicesLabel": "My Devices",
+  "otherDevicesLabel": "Other Devices",
+  "connected": "Connected",
+  "notConnected": "Not connected",
+
+  "dashboardNavTitle": "Dashbord",
+  "LEDButtonOn": "ON",
+  "LEDButtonOff": "OFF",
+
+  "settingsNavTitle": "Settings",
+  "darkModeLabel": "Dark mode",
+  "darkModeOn": "On",
+  "darkModeOff": "Off",
+  "LanguageLabel": "Language"
+}

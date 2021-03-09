@@ -1,0 +1,20 @@
+{
+  "currentLanguage": "Norsk",
+  "appTitle": "LED Kontroller",
+
+  "bluetoothNavTitle": "Bluetooth",
+  "myDevicesLabel": "Mine Enheter",
+  "otherDevicesLabel": "Andre Enheter",
+  "connected": "Tilkoblet",
+  "notConnected": "Ikke tilkoblet",
+
+  "dashboardNavTitle": "Dashbord",
+  "LEDButtonOn": "PÅ",
+  "LEDButtonOff": "AV",
+
+  "settingsNavTitle": "Innstillinger",
+  "darkModeLabel": "Mørk modus",
+  "darkModeOn": "På",
+  "darkModeOff": "Av",
+  "LanguageLabel": "Språk"
+}
