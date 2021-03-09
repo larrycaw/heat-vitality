@@ -88,12 +88,12 @@ class _SettingsState extends State<Settings> {
                       Container(
                         padding: EdgeInsets.only(left: 16, right: 16),
                         decoration: BoxDecoration(
-                          color: Colors.blue[200],
+                          color: Colors.grey[200],
                           border: Border.all(color: Colors.black, width: 1),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: DropdownButton(
-                          dropdownColor: Colors.blue[200],
+                          dropdownColor: Colors.grey[200],
                           icon: Icon(Icons.arrow_drop_down),
                           iconSize: 40,
                           underline: SizedBox(),
