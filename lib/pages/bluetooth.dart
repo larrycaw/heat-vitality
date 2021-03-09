@@ -59,18 +59,25 @@ class _BluetoothState extends State<Bluetooth> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'myDevicesLabel'.tr(),
-                  style: TextStyle(
-                    fontSize: 20,
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(width: 3.0),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'myDevicesLabel'.tr(),
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Column(
@@ -96,18 +103,25 @@ class _BluetoothState extends State<Bluetooth> {
                   ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'otherDevicesLabel'.tr(),
-                  style: TextStyle(
-                    fontSize: 20,
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(width: 3.0),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(25, 80, 0, 5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'otherDevicesLabel'.tr(),
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Expanded(

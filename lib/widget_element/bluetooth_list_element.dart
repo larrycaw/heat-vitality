@@ -40,8 +40,12 @@ class BtListElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 4),
-      height: 60,
+      height: 64,
+      decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(color: Colors.black),
+          ),
+      ),
       child: TextButton(
         onPressed: () {
           print('Bt element tapped');
