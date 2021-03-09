@@ -81,7 +81,7 @@ class _BluetoothState extends State<Bluetooth> {
                     bdAddr: key,
                     title: bluetoothDevices[key]['title'],
                     description: bluetoothDevices[key]['description'],
-                    myDevice: bluetoothDevices[key]['myDevice'],
+                    myDeviceState: bluetoothDevices[key]['myDevice'],
                     isConnecting: bluetoothDevices[key]['isConnecting'],
                     isConnected: bluetoothDevices[key]['isConnected'],
                     iconImage: bluetoothDevices[key]['iconImage'],
@@ -90,7 +90,7 @@ class _BluetoothState extends State<Bluetooth> {
                     onOtherDeviceChange: () =>
                         setState(() =>
                         bluetoothDevices[key]['myDevice'] = true),
-                    onMyDeviceChange: () =>
+                    onMyDeviceStateChange: () =>
                         setState(() =>
                         bluetoothDevices[key]['myDevice'] = false),
                   ),
@@ -119,7 +119,7 @@ class _BluetoothState extends State<Bluetooth> {
                       bdAddr: key,
                       title: bluetoothDevices[key]['title'],
                       description: bluetoothDevices[key]['description'],
-                      myDevice: bluetoothDevices[key]['myDevice'],
+                      myDeviceState: bluetoothDevices[key]['myDevice'],
                       isConnecting: bluetoothDevices[key]['isConnecting'],
                       isConnected: bluetoothDevices[key]['isConnected'],
                       iconImage: bluetoothDevices[key]['iconImage'],
@@ -128,7 +128,7 @@ class _BluetoothState extends State<Bluetooth> {
                       onOtherDeviceChange: () =>
                           setState(() =>
                           bluetoothDevices[key]['myDevice'] = true),
-                      onMyDeviceChange: () =>
+                      onMyDeviceStateChange: () =>
                           setState(() =>
                           bluetoothDevices[key]['myDevice'] = false),
                     ),
