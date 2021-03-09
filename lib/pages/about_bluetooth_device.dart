@@ -2,35 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:glove_control/variables/global_variables.dart';
 
-/*class AboutBluetoothDevice extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-        title: Text(
-          'appTitle'.tr(),
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 24,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.blue[200],
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
-        ),
-      ),
-      body: Text('About'),
-    );
-  }
-}*/
-
 class AboutBluetoothDevice extends StatefulWidget {
   @override
   _AboutBluetoothDeviceState createState() => _AboutBluetoothDeviceState();
@@ -39,7 +10,6 @@ class AboutBluetoothDevice extends StatefulWidget {
 class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
 
   void updateBluetoothDevice() {
-    // Navigate to bluetooth-screen
     Navigator.pop(context, {
       'forgetDevice': false,
       'title': 'ttl',
@@ -50,7 +20,6 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
   }
 
   void forgetBluetoothDevice() {
-    // Navigate to bluetooth-screen
     print('Context $context');
     Navigator.pop(context, {
       'forgetDevice': true,
@@ -69,7 +38,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
     }
 
     return Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey[200],
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios, color: Colors.black),
@@ -83,11 +52,8 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.blue[200],
+          backgroundColor: Color(0XFF67d0c6),
           elevation: 0,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))
-          ),
         ),
 
 
@@ -107,9 +73,14 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 4),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(color: Colors.grey, width: 0.5),
+                ),
+              ),
               height: 50,
-              child: ElevatedButton(
+              child: TextButton(
                 onPressed: () {
                   print('"Change bt device title"-button pressed');
                   setState(() {
@@ -117,7 +88,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[300],
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   onSurface: Colors.grey,
                 ),
@@ -150,14 +121,19 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 4),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: Colors.grey, width: 0.5),
+                  bottom: BorderSide(color: Colors.grey),
+                ),
+              ),
               height: 50,
-              child: ElevatedButton(
+              child: TextButton(
                 onPressed: () {
                   print('"Change bt device description"-button pressed');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[300],
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   onSurface: Colors.grey,
                 ),
@@ -193,15 +169,20 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
 
             // Forget bt dvice button
             Container(
-              margin: EdgeInsets.only(bottom: 4),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(color: Colors.grey),
+                ),
+              ),
               height: 50,
-              child: ElevatedButton(
+              child: TextButton(
                 onPressed: () {
                   forgetBluetoothDevice();
                   print('Forget bt device');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey[300],
+                  primary: Colors.white,
                   onPrimary: Colors.black,
                   onSurface: Colors.grey,
                 ),
