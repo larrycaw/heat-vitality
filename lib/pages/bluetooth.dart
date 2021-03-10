@@ -13,11 +13,6 @@ class Bluetooth extends StatefulWidget {
 
 class _BluetoothState extends State<Bluetooth> {
 
-  List allBluetoothDevices = [
-    'Jonas B. Melås Beats Solo2',
-    'Jonas B. Melås Beats Solo3',
-  ];
-
   void connectBluetoothDevice(String key) {
     setState(() {
       devicesConnectingCount++;

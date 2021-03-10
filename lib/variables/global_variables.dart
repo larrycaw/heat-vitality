@@ -2,7 +2,9 @@ library led_controller.globals;
 
 
 // _____________Constants_____________
-// Bluetooth
+// Paths
+final String translationPath = 'assets/translation';
+final String flagPath = 'assets/flags/';
 //final String bluetoothIconPath = 'assets/bluetooth_device_icon/';
 
 // Translation
@@ -11,7 +13,6 @@ final Map language = {
   'Norsk':    {'flagPath': 'no.png', 'languageCode': 'no', 'countryCode': 'NO'},
   'Sámi':     {'flagPath': 'smi.png', 'languageCode': 'smi', 'countryCode': 'NO'},
 };
-final String translationPath = 'assets/translation';
 // Default language / fallbackLocale
 final String defaultLanguageCode = language['Norsk']['languageCode'];
 final String defaultCountryCode = language['Norsk']['countryCode'];

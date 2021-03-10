@@ -116,7 +116,7 @@ class _SettingsState extends State<Settings> {
                                 child: Row(
                                   children: [
                                     CircleAvatar(
-                                      backgroundImage: AssetImage('assets/flags/${language[key]['flagPath']}'),
+                                      backgroundImage: AssetImage('$flagPath${language[key]['flagPath']}'),
                                     ),
                                     SizedBox(width: 12,),
                                     Text(key),

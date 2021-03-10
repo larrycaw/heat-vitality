@@ -10,7 +10,6 @@ class AboutBluetoothDevice extends StatefulWidget {
 class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
 
   void forgetBluetoothDevice() {
-    print('Context $context');
     Navigator.pop(context, {
       'forgetDevice': true,
     });
@@ -156,7 +155,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
             ),
             SizedBox(height: 80,),
 
-            // Forget bt dvice button
+            // Forget bt device button
             Container(
               decoration: BoxDecoration(
                 border: Border(
