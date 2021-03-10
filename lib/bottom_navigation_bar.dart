@@ -13,13 +13,16 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
+  static const int bluetooth = 0;
+  static const int dashboard = 1;
+  static const int settings = 2;
 
   Widget getBody() {
     switch (_currentIndex) {
-      case 1:
+      case dashboard:
         return Text('1');
         //return Controls();  // controls..
-      case 2:
+      case settings:
         return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
       default:
         return Bluetooth();
@@ -76,21 +79,21 @@ class _BottomNavigationState extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.bluetooth,
-              color: _currentIndex == 0 ? Colors.blue[900] : Colors.black,
+              color: _currentIndex == bluetooth ? Colors.blue[900] : Colors.black,
             ),
             label: 'bluetoothNavTitle'.tr(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.speed,//device_thermostat?
-              color: _currentIndex == 1 ? Colors.red[600] : Colors.black,
+              color: _currentIndex == dashboard ? Colors.red[600] : Colors.black,
             ),
             label: 'dashboardNavTitle'.tr(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
-              color: _currentIndex == 2 ? Colors.grey[700] : Colors.black,
+              color: _currentIndex == settings ? Colors.grey[700] : Colors.black,
             ),
             label: 'settingsNavTitle'.tr(),
           ),
