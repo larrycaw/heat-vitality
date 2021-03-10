@@ -34,6 +34,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
       case 'Norsk':
         context.locale = Locale('no', 'NO');
         break;
+      case 'Sámi':
+        //context.locale = Locale('smi', 'NO');
+        break;
     }
   }
 
