@@ -119,6 +119,9 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               child: TextButton(
                 onPressed: () {
                   print('"Change bt device description"-button pressed');
+                  setState(() {
+                    bluetoothDevices[bdAddr]['description'] = '"New description"';
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
