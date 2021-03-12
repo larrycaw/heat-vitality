@@ -25,18 +25,16 @@ class _SettingsState extends State<Settings> {
             padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Row(
               children: [
-                Expanded(
-                  child: Row(
-                    children: [
-                      SizedBox(width: 25),
-                      Text(
-                        "darkMode".tr() + ":",
-                        style: TextStyle(
-                          fontSize: 24,
-                        ),
+                Row(
+                  children: [
+                    SizedBox(width: 25),
+                    Text(
+                      "darkMode".tr() + ":",
+                      style: TextStyle(
+                        fontSize: 24,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: Row(
@@ -66,22 +64,18 @@ class _SettingsState extends State<Settings> {
             padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Row(
               children: [
-                Expanded(
-                  flex: 3,
-                  child: Row(
-                    children: [
-                      SizedBox(width: 25),
-                      Text(
-                        ('language').tr() + ":",
-                        style: TextStyle(
-                          fontSize: 24,
-                        ),
+                Row(
+                  children: [
+                    SizedBox(width: 25),
+                    Text(
+                      ('language').tr() + ":",
+                      style: TextStyle(
+                        fontSize: 24,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Expanded(
-                  flex: 4,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glove_control/pages/bluetooth.dart';
+import 'package:glove_control/pages/dashboard.dart';
 import 'package:glove_control/pages/settings.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -20,7 +21,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget getBody() {
     switch (_currentIndex) {
       case dashboard:
-        return Text('1');
+        return Dashboard();
         //return Controls();  // controls..
       case settings:
         return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
