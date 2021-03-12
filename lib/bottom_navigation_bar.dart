@@ -22,7 +22,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
     switch (_currentIndex) {
       case dashboard:
         return Dashboard();
-        //return Controls();  // controls..
       case settings:
         return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
       default:

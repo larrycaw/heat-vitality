@@ -8,14 +8,27 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  double _degreeValue = 36;
-  final double minDegree = 10;
-  final double maxDegree = 50;
+  final double minDegree = 0;
+  final double maxDegree = 100;
   final double thermostatWidth = 33;
+
+  double _degreeValue = 100;
+  int batteryPercentage = 100;
+  int batteryIconPercentage = 100;
+  Color batteryIconColor = Colors.green;
 
   void onDegreeChanged(double newValue) {
     setState(() {
       _degreeValue = newValue;
+      batteryPercentage = newValue.ceil();
+      batteryIconPercentage = newValue.toInt() < 15 ? 15 : newValue.toInt();
+      if(batteryPercentage > 62) {
+        batteryIconColor = Colors.green;
+      } else if(batteryPercentage > 35) {
+        batteryIconColor = Colors.amber[600];
+      } else {
+        batteryIconColor = Colors.red;
+      }
     });
   }
 
@@ -82,44 +95,64 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.battery_full,
-              size: 80,
-              color: Colors.green,
-            ),
-            Text(
-              '90%',
-              style: TextStyle(
-                fontSize: 25,
+            Expanded(
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Stack(
+                    children: [
+                      Icon(
+                        Icons.battery_full,
+                        size: 80,
+                        color: Colors.black,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(28, 19, 0, 0),
+                        child: Container(
+                          decoration: new BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: new BorderRadius.all(
+                              Radius.circular(2.0),
+                            ),
+                          ),
+                          width: 24,
+                          height: 50,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 98 - batteryIconPercentage,
+                                child: Container(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 0 + batteryIconPercentage,
+                                child: Container(
+                                  color: batteryIconColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-        Stack(
-          children: [
-            Transform.rotate(
-              angle: 90 * math.pi / 180,
-              child: Icon(
-                Icons.battery_full_outlined,
-                size: 200,
-                color: Colors.green,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(18, 60, 0, 0),
-              child: Container(
-                width: 147,
-                height: 80,
-                child: Center(
-                  child: Text(
-                    '90%',
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Text(
+                    '$batteryPercentage%',
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 25,
                     ),
                   ),
-                ),
+                ],
               ),
             ),
           ],
