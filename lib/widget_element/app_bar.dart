@@ -27,6 +27,23 @@ class _CustomAppBarState extends State<CustomAppBar>{
       centerTitle: true,
       backgroundColor: Color(0XFF571fe4),
       elevation: 0,
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.speed),
+          tooltip: 'Go to dashboard',
+          onPressed: () {
+            print('Go to dashboard');
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.settings),
+          tooltip: 'Go to settings',
+          onPressed: () {
+            print('Go to settings');
+            Navigator.pushNamed(context, "/settings");
+          },
+        ),
+      ],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glove_control/widget_element/app_bar.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -18,6 +19,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: CustomAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
