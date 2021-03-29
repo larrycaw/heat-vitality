@@ -21,10 +21,15 @@ class _SettingsState extends State<Settings> {
       backgroundColor: Colors.white,
       appBar: CustomAppBar(),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: Colors.grey[300]),
+              ),
+            ),
+            padding: EdgeInsets.only(top: 130, bottom: 30),
             child: Row(
               children: [
                 Row(
@@ -33,7 +38,7 @@ class _SettingsState extends State<Settings> {
                     Text(
                       "darkMode".tr() + ":",
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 22,
                       ),
                     ),
                   ],
@@ -42,18 +47,19 @@ class _SettingsState extends State<Settings> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      LiteRollingSwitch(
-                        value: darkModeOn,
-                        textOn: 'darkModeOn'.tr(),
-                        textOff: 'darkModeOff'.tr(),
-                        colorOn: Colors.deepPurple[600],
-                        colorOff: Colors.amber[700],
-                        iconOn: Icons.nightlight_round,
-                        iconOff: Icons.wb_sunny,
-                        textSize: 18,
-                        onChanged: (bool nightModeState) {
-                          print('Night mode on? $nightModeState');
-                        },
+                      Transform.scale(
+                        scale: 1.3,
+                        child: Switch(
+                          value: darkModeOn,
+                          onChanged: (value) {
+                            setState(() {
+                              darkModeOn = value;
+                              print(darkModeOn);
+                            });
+                          },
+                          activeTrackColor: Colors.deepPurpleAccent[100],
+                          activeColor: Color(0XFF571fe4),
+                        ),
                       ),
                       SizedBox(width: 25),
                     ],
@@ -63,12 +69,12 @@ class _SettingsState extends State<Settings> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
+            padding: EdgeInsets.only(top: 30, bottom: 10),
             child: Row(
               children: [
                 Row(
                   children: [
-                    SizedBox(width: 25),
+                    SizedBox(width: 22),
                     Text(
                       ('language').tr() + ":",
                       style: TextStyle(
@@ -84,17 +90,17 @@ class _SettingsState extends State<Settings> {
                       Container(
                         padding: EdgeInsets.only(left: 16, right: 16),
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Colors.white,
                           border: Border.all(color: Colors.black, width: 1),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: DropdownButton(
-                          dropdownColor: Colors.grey[200],
+                          dropdownColor: Colors.white,
                           icon: Icon(Icons.arrow_drop_down),
                           iconSize: 40,
                           underline: SizedBox(),
                           style: TextStyle(
-                            fontSize: 23,
+                            fontSize: 22,
                             color: Colors.black,
                           ),
                           value: 'currentLanguage'.tr(),

@@ -18,8 +18,8 @@ void main() => runApp(
       initialRoute: "/",
       routes: {
         "/old_index": (context) => BottomNavigation(),
-        "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
         "/": (context) => Bluetooth(),
+        "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
         "/settings": (context) => Settings(),
       },
     ),
