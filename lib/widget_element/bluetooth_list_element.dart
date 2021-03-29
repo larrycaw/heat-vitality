@@ -42,10 +42,10 @@ class BtListElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 64,
+      height: 84,
       decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(color: Colors.black),
+            bottom: BorderSide(color: Colors.grey[300]),
           ),
       ),
       child: TextButton(
@@ -103,7 +103,7 @@ class BtListElement extends StatelessWidget {
                       color: Colors.grey[700]
                   ),
                 ),
-                SizedBox(width: 10,)
+                SizedBox(width: 20,)
               ],
             ),
             GestureDetector(
@@ -120,8 +120,9 @@ class BtListElement extends StatelessWidget {
                     } else onUpdateBluetoothDevice();
                   } else if(!getMyDeviceState()) onAddDevice();
                 },
-                child: getMyDeviceState() ? Icon(Icons.arrow_forward_ios, size: 25,) : Icon(Icons.add, size: 30,)
+                child: getMyDeviceState() ? Icon(Icons.arrow_forward_ios, size: 22) : Icon(Icons.add, size: 28,)
             ),
+            SizedBox(width: 20,)
           ],
         ),
       ),
