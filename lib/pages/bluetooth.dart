@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:glove_control/widget_element/app_bar.dart';
 import 'package:glove_control/widget_element/bluetooth_list_element.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -59,17 +60,13 @@ class _BluetoothState extends State<Bluetooth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
+      appBar: CustomAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(width: 3.0),
-              ),
-            ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
               child: Row(
@@ -107,11 +104,6 @@ class _BluetoothState extends State<Bluetooth> {
             ],
           ),
           Container(
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(width: 3.0),
-              ),
-            ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(25, 80, 0, 5),
               child: Row(
