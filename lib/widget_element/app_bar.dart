@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  CustomAppBar({Key key}) : preferredSize = Size.fromHeight(kToolbarHeight), super(key: key);
-
   @override
   final Size preferredSize; // default is 56.0
+  final VoidCallback update;
+
+  CustomAppBar({Key key, this.update}) : preferredSize = Size.fromHeight(kToolbarHeight), super(key: key);
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -38,9 +39,11 @@ class _CustomAppBarState extends State<CustomAppBar>{
         IconButton(
           icon: const Icon(Icons.settings),
           tooltip: 'Go to settings',
-          onPressed: () {
+          onPressed: () async {
             print('Go to settings');
-            Navigator.pushNamed(context, "/settings");
+            await Navigator.pushNamed(context, "/settings");
+            print('Back from settings');
+            this.widget.update();
           },
         ),
       ],

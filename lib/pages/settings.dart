@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:glove_control/widget_element/app_bar.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class Settings extends StatefulWidget {
   final Function(String) newLanguage;
 
-  Settings({@required this.newLanguage});
+  Settings({this.newLanguage});
 
   @override
   _SettingsState createState() => _SettingsState();
@@ -15,6 +14,21 @@ class Settings extends StatefulWidget {
 
 
 class _SettingsState extends State<Settings> {
+
+  void setLanguage(String newLanguage) {
+    switch (newLanguage) {
+      case 'English':
+        context.locale = Locale('en', 'GB');
+        break;
+      case 'Norsk':
+        context.locale = Locale('no', 'NO');
+        break;
+      case 'Sámi':
+      //context.locale = Locale('smi', 'NO');
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +121,8 @@ class _SettingsState extends State<Settings> {
                           onChanged: (newLanguage) {
                             setState(() {
                               print('New language: $newLanguage');
-                              this.widget.newLanguage(newLanguage);
+                              //this.widget.newLanguage(newLanguage);
+                              setLanguage(newLanguage);
                             });
                           },
                           items: language.map((key, value) {
