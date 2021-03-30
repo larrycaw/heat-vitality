@@ -5,6 +5,7 @@ library led_controller.globals;
 // Paths
 final String translationPath = 'assets/translation';
 final String flagPath = 'assets/flags/';
+final String logoPath = 'assets/logo/';
 //final String bluetoothIconPath = 'assets/bluetooth_device_icon/';
 
 // Translation
@@ -16,6 +17,10 @@ final Map language = {
 // Default language / fallbackLocale
 final String defaultLanguageCode = language['Norsk']['languageCode'];
 final String defaultCountryCode = language['Norsk']['countryCode'];
+
+// Link to at ease
+final String urlAtEase = 'https://atease.no/';
+final String atEaseLogo = 'atEaseLogo.png';
 
 
 

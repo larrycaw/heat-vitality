@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize; // default is 56.0
