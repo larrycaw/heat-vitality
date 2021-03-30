@@ -15,25 +15,27 @@ class AdvertisementAtEase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          height: 84,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onSurface: Colors.grey,
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            height: 84,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onSurface: Colors.grey,
+              ),
+              onPressed: (){
+                print('Link button pressed');
+                goToAtEaseWebsite();
+              },
+              child: Image.asset(logoPath + atEaseLogo),
             ),
-            onPressed: (){
-              print('Link button pressed');
-              goToAtEaseWebsite();
-            },
-            child: Image.asset(logoPath + atEaseLogo),
           ),
-        ),
-        SizedBox(height: 40,),
-      ],
+          SizedBox(height: 40,),
+        ],
+      ),
     );
   }
 }

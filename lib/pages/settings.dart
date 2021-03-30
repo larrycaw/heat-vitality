@@ -152,7 +152,7 @@ class _SettingsState extends State<Settings> {
               ],
             ),
           ),
-          //AdvertisementAtEase(),
+          AdvertisementAtEase(),
         ],
       ),
     );
