@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:glove_control/variables/global_variables.dart';
+import 'package:glove_control/widget_element/add_at_ease.dart';
 
 class AboutBluetoothDevice extends StatefulWidget {
   @override
@@ -185,6 +186,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 ),
               ),
             ),
+            AdvertisementAtEase(),
           ],
         )
     );
