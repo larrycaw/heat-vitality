@@ -17,8 +17,10 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
   }
 
 
+
   @override
   Widget build(BuildContext context) {
+    // Get parameter sent (when asking to open this page)
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     String bdAddr;
 
@@ -61,8 +63,17 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               ),
               height: 84,
               child: TextButton(
-                onPressed: () {
+                onPressed: () async {
                   print('"Change bt device title"-button pressed');
+                  dynamic result = await Navigator.pushNamed(
+                    context,
+                    "/change_bluetooth_info",
+                    arguments: <String, String>{
+                      'bdAddr': bdAddr,
+                      'infoToChange': 'title',
+                    },
+                  );
+                  print('Result: $result');
                   setState(() {
                     bluetoothDevices[bdAddr]['title'] = '"New title"';
                   });
