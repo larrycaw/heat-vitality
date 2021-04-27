@@ -125,11 +125,24 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               ),
               height: 84,
               child: TextButton(
-                onPressed: () {
+                onPressed: () async {
                   print('"Change bt device description"-button pressed');
-                  setState(() {
-                    bluetoothDevices[bdAddr]['description'] = '"New description"';
-                  });
+                  dynamic result = await Navigator.pushNamed(
+                    context,
+                    "/change_bluetooth_info",
+                    arguments: <String, String>{
+                      'bdAddr': bdAddr,
+                      'infoToChange': 'description',
+                      'oldValue': bluetoothDevices[bdAddr]['description'],
+                    },
+                  );
+
+                  if(result != null) {
+                    print('Result from "change_bt_info": $result');
+                    setState(() {
+                      bluetoothDevices[bdAddr]['description'] = result['newDescription'];
+                    });
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,

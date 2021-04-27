@@ -5,17 +5,14 @@ class ChangeBluetoothInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Controller for the Textfield
+    // Controller for the TextField
     TextEditingController newValueController = new TextEditingController();
 
     // Get parameter sent (when asking to open this page)
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-    String bdAddr;
     String infoToChange;
-    String oldValue;
 
     if (arguments != null) {
-      bdAddr = arguments['bdAddr'];
       infoToChange = arguments['infoToChange'];
       newValueController.text = arguments['oldValue'];
     }
@@ -39,7 +36,27 @@ class ChangeBluetoothInfo extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(
           color: Colors.white,
-          onPressed: () => changeValue(),
+          onPressed: () {
+            if(newValueController.text == '' || newValueController.text == null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text(
+                    'The textfield must have a value',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  duration: const Duration(seconds: 8),
+                  action: SnackBarAction(
+                    label: 'HIDE',
+                    onPressed: () {},
+                  ),
+                ),
+              );
+            } else {
+              changeValue();
+            }
+          }
         ),
         backgroundColor: Color(0XFF571fe4),
         elevation: 0,
