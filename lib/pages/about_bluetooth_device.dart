@@ -71,12 +71,16 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                     arguments: <String, String>{
                       'bdAddr': bdAddr,
                       'infoToChange': 'title',
+                      'oldValue': bluetoothDevices[bdAddr]['title'],
                     },
                   );
-                  print('Result: $result');
-                  setState(() {
-                    bluetoothDevices[bdAddr]['title'] = '"New title"';
-                  });
+
+                  if(result != null) {
+                    print('Result from "change_bt_info": $result');
+                    setState(() {
+                    bluetoothDevices[bdAddr]['title'] = result['newTitle'];
+                    });
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,

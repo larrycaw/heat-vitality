@@ -5,26 +5,32 @@ class ChangeBluetoothInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller for the Textfield
+    TextEditingController newValueController = new TextEditingController();
+
     // Get parameter sent (when asking to open this page)
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     String bdAddr;
     String infoToChange;
+    String oldValue;
 
     if (arguments != null) {
       bdAddr = arguments['bdAddr'];
       infoToChange = arguments['infoToChange'];
+      newValueController.text = arguments['oldValue'];
     }
 
-    void changeTitle() {
-      Navigator.pop(context, {
-        'title': bdAddr,
-      });
-    }
-
-    void changeDescription() {
-      Navigator.pop(context, {
-        'description': bdAddr,
-      });
+    // Send new value back to page that asked for it
+    void changeValue() {
+      if(infoToChange == 'title') {
+        Navigator.pop(context, {
+          'newTitle': newValueController.text,
+        });
+      } else if(infoToChange == 'description') {
+        Navigator.pop(context, {
+          'newDescription': newValueController.text,
+        });
+      }
     }
 
 
@@ -33,6 +39,7 @@ class ChangeBluetoothInfo extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(
           color: Colors.white,
+          onPressed: () => changeValue(),
         ),
         backgroundColor: Color(0XFF571fe4),
         elevation: 0,
@@ -53,6 +60,7 @@ class ChangeBluetoothInfo extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: newValueController,
             style: TextStyle(
                 fontSize: 20.0,
                 height: 2.0,
