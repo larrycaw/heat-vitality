@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:glove_control/pages/bluetooth.dart';
 import 'package:glove_control/pages/settings.dart';
+import 'package:glove_control/pages/dashboard.dart';
 
 void main() => runApp(
   EasyLocalization(
@@ -16,13 +17,14 @@ void main() => runApp(
     path: translationPath,
     fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
     child: MaterialApp(
-      initialRoute: "/",
+      initialRoute: "/dashboard",
       routes: {
         "/old_index": (context) => BottomNavigation(),
         "/": (context) => Bluetooth(),
         "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
         "/change_bluetooth_info": (context) => ChangeBluetoothInfo(),
         "/settings": (context) => Settings(),
+        "/dashboard": (context) => Dashboard(),
       },
     ),
   ),
