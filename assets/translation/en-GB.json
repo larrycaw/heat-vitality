@@ -19,5 +19,7 @@
   "darkMode": "Dark mode",
   "darkModeOn": "On",
   "darkModeOff": "Off",
-  "language": "Language"
+  "language": "Language",
+
+  "units": "Units"
 }

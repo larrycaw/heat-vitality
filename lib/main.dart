@@ -7,25 +7,27 @@ import 'package:glove_control/variables/global_variables.dart';
 import 'package:glove_control/pages/bluetooth.dart';
 import 'package:glove_control/pages/settings.dart';
 import 'package:glove_control/pages/dashboard.dart';
+import "package:glove_control/pages/glove_settings.dart";
 
 void main() => runApp(
-  EasyLocalization(
-    supportedLocales: [
-      Locale('en', 'GB'),
-      Locale('no', 'NO'),
-    ],
-    path: translationPath,
-    fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
-    child: MaterialApp(
-      initialRoute: "/dashboard",
-      routes: {
-        "/old_index": (context) => BottomNavigation(),
-        "/": (context) => Bluetooth(),
-        "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
-        "/change_bluetooth_info": (context) => ChangeBluetoothInfo(),
-        "/settings": (context) => Settings(),
-        "/dashboard": (context) => Dashboard(),
-      },
-    ),
-  ),
-);
+      EasyLocalization(
+        supportedLocales: [
+          Locale('en', 'GB'),
+          Locale('no', 'NO'),
+        ],
+        path: translationPath,
+        fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
+        child: MaterialApp(
+          initialRoute: "/dashboard",
+          routes: {
+            "/old_index": (context) => BottomNavigation(),
+            "/": (context) => Bluetooth(),
+            "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
+            "/change_bluetooth_info": (context) => ChangeBluetoothInfo(),
+            "/settings": (context) => Settings(),
+            "/dashboard": (context) => Dashboard(),
+            "/glove_settings": (context) => GloveSettings()
+          },
+        ),
+      ),
+    );

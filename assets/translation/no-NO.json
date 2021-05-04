@@ -19,5 +19,7 @@
   "darkMode": "Mørk modus",
   "darkModeOn": "På",
   "darkModeOff": "Av",
-  "language": "Språk"
+  "language": "Språk",
+
+  "units": "Enheter"
 }
