@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:glove_control/variables/global_variables.dart';
-import 'package:glove_control/widget_element/advertisement_at_ease.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
+import 'package:heat_vitality/widget_element/advertisement_at_ease.dart';
 
 class AboutBluetoothDevice extends StatefulWidget {
   @override
@@ -9,14 +9,11 @@ class AboutBluetoothDevice extends StatefulWidget {
 }
 
 class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
-
   void forgetBluetoothDevice() {
     Navigator.pop(context, {
       'forgetDevice': true,
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +35,6 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
           backgroundColor: Color(0XFF571fe4),
           elevation: 0,
         ),
-
-
         body: Column(
           children: [
             Padding(
@@ -75,10 +70,10 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                     },
                   );
 
-                  if(result != null) {
+                  if (result != null) {
                     print('Result from "change_bt_info": $result');
                     setState(() {
-                    bluetoothDevices[bdAddr]['title'] = result['newTitle'];
+                      bluetoothDevices[bdAddr]['title'] = result['newTitle'];
                     });
                   }
                 },
@@ -89,7 +84,9 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 ),
                 child: Row(
                   children: [
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(
                       'title'.tr(),
                       style: TextStyle(
@@ -101,7 +98,9 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            bdAddr != null ? bluetoothDevices[bdAddr]['title'] : "Could not get value",
+                            bdAddr != null
+                                ? bluetoothDevices[bdAddr]['title']
+                                : "Could not get value",
                             style: TextStyle(
                               fontSize: 17,
                               color: Colors.grey[700],
@@ -110,9 +109,16 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 20,),
-                    Icon(Icons.arrow_forward_ios, size: 22,),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 22,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
               ),
@@ -137,10 +143,11 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                     },
                   );
 
-                  if(result != null) {
+                  if (result != null) {
                     print('Result from "change_bt_info": $result');
                     setState(() {
-                      bluetoothDevices[bdAddr]['description'] = result['newDescription'];
+                      bluetoothDevices[bdAddr]['description'] =
+                          result['newDescription'];
                     });
                   }
                 },
@@ -151,7 +158,9 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 ),
                 child: Row(
                   children: [
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(
                       'description'.tr(),
                       style: TextStyle(
@@ -163,7 +172,9 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            bdAddr != null ? bluetoothDevices[bdAddr]['description'] : "Could not get value",
+                            bdAddr != null
+                                ? bluetoothDevices[bdAddr]['description']
+                                : "Could not get value",
                             style: TextStyle(
                               fontSize: 17,
                               color: Colors.grey[700],
@@ -172,14 +183,23 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 20,),
-                    Icon(Icons.arrow_forward_ios, size: 22,),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 22,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 90,),
+            SizedBox(
+              height: 90,
+            ),
 
             // Forget bt device button
             Container(
@@ -202,13 +222,12 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                 ),
                 child: Row(
                   children: [
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(
                       'forgetDevice'.tr(),
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.red[700]
-                      ),
+                      style: TextStyle(fontSize: 17, color: Colors.red[700]),
                     ),
                   ],
                 ),
@@ -216,7 +235,6 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
             ),
             AdvertisementAtEase(),
           ],
-        )
-    );
+        ));
   }
 }

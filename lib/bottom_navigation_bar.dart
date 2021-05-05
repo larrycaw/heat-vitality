@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:glove_control/pages/bluetooth.dart';
-import 'package:glove_control/pages/dashboard.dart';
-import 'package:glove_control/pages/settings.dart';
-import 'package:glove_control/variables/global_variables.dart';
+import 'package:heat_vitality/pages/bluetooth.dart';
+import 'package:heat_vitality/pages/dashboard.dart';
+import 'package:heat_vitality/pages/settings.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
