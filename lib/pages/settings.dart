@@ -13,9 +13,7 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
-
 class _SettingsState extends State<Settings> {
-
   void setLanguage(String newLanguage) {
     switch (newLanguage) {
       case 'English':
@@ -25,11 +23,12 @@ class _SettingsState extends State<Settings> {
         context.locale = Locale('no', 'NO');
         break;
       case 'Sámi':
-      //context.locale = Locale('smi', 'NO');
+        //context.locale = Locale('smi', 'NO');
         break;
     }
   }
 
+//https://api.flutter.dev/flutter/material/DropdownButton-class.html
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +38,28 @@ class _SettingsState extends State<Settings> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
+              child: Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20.0, bottom: 10.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text('mySettings'.tr(),
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold))
+              ],
+            ),
+          )),
+          Container(
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: Colors.grey[300]),
               ),
             ),
-            padding: EdgeInsets.only(top: 130, bottom: 30),
+            //padding: EdgeInsets.only(top: 130, bottom: 30),
             child: Row(
               children: [
                 Row(
                   children: [
-                    SizedBox(width: 25),
+                    SizedBox(width: 20),
                     Text(
                       "darkMode".tr() + ":",
                       style: TextStyle(
@@ -84,7 +94,7 @@ class _SettingsState extends State<Settings> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 30, bottom: 10),
+            //padding: EdgeInsets.only(top: 30, bottom: 10),
             child: Row(
               children: [
                 Row(
@@ -106,8 +116,8 @@ class _SettingsState extends State<Settings> {
                         padding: EdgeInsets.only(left: 16, right: 16),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border.all(color: Colors.black, width: 1),
-                          borderRadius: BorderRadius.circular(15),
+                          //border: Border.all(color: Colors.black, width: 1),
+                          //borderRadius: BorderRadius.circular(15),
                         ),
                         child: DropdownButton(
                           dropdownColor: Colors.white,
@@ -126,26 +136,32 @@ class _SettingsState extends State<Settings> {
                               setLanguage(newLanguage);
                             });
                           },
-                          items: language.map((key, value) {
-                            return MapEntry(
-                              key,
-                              DropdownMenuItem(
-                                value: key,
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundImage: AssetImage('$flagPath${language[key]['flagPath']}'),
+                          items: language
+                              .map((key, value) {
+                                return MapEntry(
+                                  key,
+                                  DropdownMenuItem(
+                                    value: key,
+                                    child: Row(
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                              '$flagPath${language[key]['flagPath']}'),
+                                        ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        Text(key),
+                                      ],
                                     ),
-                                    SizedBox(width: 12,),
-                                    Text(key),
-                                  ],
-                                ),
-                              ),
-                            );
-                          }).values.toList(),
+                                  ),
+                                );
+                              })
+                              .values
+                              .toList(),
                         ),
                       ),
-                      SizedBox(width: 25),
+                      SizedBox(width: 10),
                     ],
                   ),
                 ),

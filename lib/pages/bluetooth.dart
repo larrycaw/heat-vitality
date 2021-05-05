@@ -6,14 +6,12 @@ import 'package:glove_control/widget_element/bluetooth_list_element.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 class Bluetooth extends StatefulWidget {
   @override
   _BluetoothState createState() => _BluetoothState();
 }
 
 class _BluetoothState extends State<Bluetooth> {
-
   void connectBluetoothDevice(String key) {
     setState(() {
       devicesConnectingCount++;
@@ -56,7 +54,6 @@ class _BluetoothState extends State<Bluetooth> {
     print('Device forgotten');
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +65,17 @@ class _BluetoothState extends State<Bluetooth> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+              child: Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text('myBluetoothDevices'.tr(),
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold))
+              ],
+            ),
+          )),
           Container(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
@@ -86,7 +94,7 @@ class _BluetoothState extends State<Bluetooth> {
           ),
           Column(
             children: [
-              for(var key in bluetoothDevices.keys)
+              for (var key in bluetoothDevices.keys)
                 if (bluetoothDevices[key]['myDevice'])
                   BtListElement(
                     bdAddr: key,
@@ -96,10 +104,10 @@ class _BluetoothState extends State<Bluetooth> {
                     isConnecting: bluetoothDevices[key]['isConnecting'],
                     isConnected: bluetoothDevices[key]['isConnected'],
                     iconImage: bluetoothDevices[key]['iconImage'],
-                    onConnectingStateChange: (bool isConnected) =>
-                    isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
-                    onForgetDevice: () =>
-                        setState(() => forgetMyDevice(key)),
+                    onConnectingStateChange: (bool isConnected) => isConnected
+                        ? disconnectBluetoothDevice(key)
+                        : connectBluetoothDevice(key),
+                    onForgetDevice: () => setState(() => forgetMyDevice(key)),
                     onUpdateBluetoothDevice: () =>
                         setState(() => print('Updated bt device')),
                   ),
@@ -124,7 +132,7 @@ class _BluetoothState extends State<Bluetooth> {
           Expanded(
             child: ListView(
               children: [
-                for(var key in bluetoothDevices.keys)
+                for (var key in bluetoothDevices.keys)
                   if (!bluetoothDevices[key]['myDevice'])
                     BtListElement(
                       bdAddr: key,
@@ -134,10 +142,10 @@ class _BluetoothState extends State<Bluetooth> {
                       isConnecting: bluetoothDevices[key]['isConnecting'],
                       isConnected: bluetoothDevices[key]['isConnected'],
                       iconImage: bluetoothDevices[key]['iconImage'],
-                      onConnectingStateChange: (bool isConnected) =>
-                      isConnected ? disconnectBluetoothDevice(key) : connectBluetoothDevice(key),
-                      onAddDevice: () =>
-                          setState(() => addMyDevice(key)),
+                      onConnectingStateChange: (bool isConnected) => isConnected
+                          ? disconnectBluetoothDevice(key)
+                          : connectBluetoothDevice(key),
+                      onAddDevice: () => setState(() => addMyDevice(key)),
                     ),
               ],
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
@@ -26,12 +25,27 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ),
       ),*/
       centerTitle: true,
-      backgroundColor: HexColor("#6223EE"),
+      backgroundColor: Color(0XFF571fe4),
       elevation: 0,
-      leading: IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: () => Navigator.pop(context),
-      ),
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.speed),
+          tooltip: 'Go to dashboard',
+          onPressed: () {
+            print('Go to dashboard');
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.settings),
+          tooltip: 'Go to settings',
+          onPressed: () async {
+            print('Go to settings');
+            await Navigator.pushNamed(context, "/settings");
+            print('Back from settings');
+            this.widget.update();
+          },
+        ),
+      ],
     );
   }
 }

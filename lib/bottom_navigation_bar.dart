@@ -4,7 +4,7 @@ import 'package:glove_control/pages/dashboard.dart';
 import 'package:glove_control/pages/settings.dart';
 import 'package:glove_control/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/services.dart' ;
+import 'package:flutter/services.dart';
 
 // Main¿?
 class BottomNavigation extends StatefulWidget {
@@ -23,7 +23,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
       case dashboard:
         return Dashboard();
       case settings:
-        return Settings(newLanguage: (String newLanguage) => setLanguage(newLanguage),);
+        return Settings(
+          newLanguage: (String newLanguage) => setLanguage(newLanguage),
+        );
       default:
         return Bluetooth();
     }
@@ -45,7 +47,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
-
     // Prevent landscape portrait
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -79,30 +80,33 @@ class _BottomNavigationState extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.bluetooth,
-              color: _currentIndex == bluetooth ? Colors.blue[900] : Colors.black,
+              color:
+                  _currentIndex == bluetooth ? Colors.blue[900] : Colors.black,
             ),
             label: 'bluetoothNavTitle'.tr(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.speed,//device_thermostat?
-              color: _currentIndex == dashboard ? Colors.red[600] : Colors.black,
+              Icons.speed, //device_thermostat?
+              color:
+                  _currentIndex == dashboard ? Colors.red[600] : Colors.black,
             ),
             label: 'dashboardNavTitle'.tr(),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
-              color: _currentIndex == settings ? Colors.grey[700] : Colors.black,
+              color:
+                  _currentIndex == settings ? Colors.grey[700] : Colors.black,
             ),
             label: 'settingsNavTitle'.tr(),
           ),
         ],
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             print('index: $index');
             print('Bt devices connected count: $devicesConnectedCount');
-            if(devicesConnectingCount == 0) {
+            if (devicesConnectingCount == 0) {
               _currentIndex = index;
             }
           });

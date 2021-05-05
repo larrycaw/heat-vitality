@@ -25,6 +25,7 @@ class _DashboardState extends State<Dashboard> {
             GestureDetector(
                 onTap: () => Navigator.pushNamed(context, "/glove_settings"),
                 child: Card(
+                  elevation: 15,
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     const ListTile(
@@ -40,7 +41,9 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomAppBar(
         child: Row(children: [
           IconButton(
-              icon: Icon(Icons.settings), onPressed: () {}, color: Colors.white)
+              icon: Icon(Icons.settings),
+              onPressed: () => Navigator.pushNamed(context, "/settings"),
+              color: Colors.white)
         ]),
         color: HexColor("#6223EE"),
       ),

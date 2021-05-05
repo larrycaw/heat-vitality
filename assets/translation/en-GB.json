@@ -21,5 +21,7 @@
   "darkModeOff": "Off",
   "language": "Language",
 
-  "units": "Units"
+  "units": "Units",
+  "mySettings": "Settings",
+  "myBluetoothDevices": "Connect to devices"
 }

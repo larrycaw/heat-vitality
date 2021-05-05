@@ -21,5 +21,7 @@
   "darkModeOff": "Av",
   "language": "Språk",
 
-  "units": "Enheter"
+  "units": "Enheter",
+  "mySettings": "Instillinger",
+  "myBluetoothDevices": "Tilknytt enheter"
 }

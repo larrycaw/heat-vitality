@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 //import 'package:easy_localization/easy_localization.dart';
 
 class GloveSettings extends StatefulWidget {
@@ -16,6 +17,7 @@ class _GloveSettingsState extends State<GloveSettings> {
             length: 2,
             child: Scaffold(
               appBar: AppBar(
+                backgroundColor: HexColor("6223EE"),
                 bottom: TabBar(
                   tabs: [Tab(text: "Standarder"), Tab(text: "Tilpasset")],
                 ),
