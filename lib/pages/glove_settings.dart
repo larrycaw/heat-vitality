@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 //import 'package:easy_localization/easy_localization.dart';
 
@@ -42,7 +41,7 @@ class _GloveSettingsState extends State<GloveSettings> {
             length: 2,
             child: Scaffold(
               appBar: AppBar(
-                backgroundColor: HexColor("6223EE"),
+                backgroundColor: Color(0xFF6223EE),
                 bottom: TabBar(
                   tabs: [Tab(text: "Standarder"), Tab(text: "Tilpasset")],
                 ),

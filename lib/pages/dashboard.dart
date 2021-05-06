@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -45,12 +44,12 @@ class _DashboardState extends State<Dashboard> {
               onPressed: () => Navigator.pushNamed(context, "/settings"),
               color: Colors.white)
         ]),
-        color: HexColor("#6223EE"),
+        color: Color(0xFF6223EE)
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () => Navigator.pushNamed(context, "/"),
-          backgroundColor: HexColor("#03DAC5"),
+          backgroundColor: Color(0xFF03DAC5),
           foregroundColor: Colors.black),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
