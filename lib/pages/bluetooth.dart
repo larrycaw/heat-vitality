@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:glove_control/widget_element/app_bar.dart';
-import 'package:glove_control/widget_element/bluetooth_list_element.dart';
-import 'package:glove_control/variables/global_variables.dart';
+import 'package:heat_vitality/widget_element/app_bar.dart';
+import 'package:heat_vitality/widget_element/bluetooth_list_element.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class Bluetooth extends StatefulWidget {

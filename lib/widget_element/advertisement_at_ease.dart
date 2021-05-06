@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:glove_control/variables/global_variables.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 
 class AdvertisementAtEase extends StatelessWidget {
   void goToAtEaseWebsite() async{
