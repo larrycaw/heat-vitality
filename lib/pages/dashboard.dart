@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:heat_vitality/pages/glove_settings.dart';
+import 'package:heat_vitality/pages/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:hexcolor/hexcolor.dart';
+
+import 'bluetooth.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -23,7 +26,7 @@ class _DashboardState extends State<Dashboard> {
               textAlign: TextAlign.left,
             ),
             GestureDetector(
-                onTap: () => Navigator.pushNamed(context, "/glove_settings"),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => GloveSettings()), ).then((value) => setState(() {})),//Navigator.pushNamed(context, "/glove_settings"),
                 child: Card(
                   elevation: 15,
                   child:
@@ -42,15 +45,15 @@ class _DashboardState extends State<Dashboard> {
         child: Row(children: [
           IconButton(
               icon: Icon(Icons.settings),
-              onPressed: () => Navigator.pushNamed(context, "/settings"),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()), ).then((value) => setState(() {})),//Navigator.pushNamed(context, "/settings"),
               color: Colors.white)
         ]),
-        color: HexColor("#6223EE"),
+        color: Color(0xFF6223EE)
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () => Navigator.pushNamed(context, "/"),
-          backgroundColor: HexColor("#03DAC5"),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Bluetooth()), ).then((value) => setState(() {})),//Navigator.pushNamed(context, "/"),
+          backgroundColor: Color(0xFF03DAC5),
           foregroundColor: Colors.black),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );

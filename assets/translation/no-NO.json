@@ -23,5 +23,12 @@
 
   "units": "Enheter",
   "mySettings": "Instillinger",
-  "myBluetoothDevices": "Tilknytt enheter"
+  "myBluetoothDevices": "Tilknytt enheter",
+
+  "tempLow": "Lav",
+  "tempMedium": "Middels",
+  "tempHigh": "Sterk",
+
+  "tabStandards": "Standardvalg",
+  "tabCustom": "Tilpass selv"
 }
