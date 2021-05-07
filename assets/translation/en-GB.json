@@ -23,5 +23,12 @@
 
   "units": "Units",
   "mySettings": "Settings",
-  "myBluetoothDevices": "Connect to devices"
+  "myBluetoothDevices": "Connect to devices",
+
+  "tempLow": "Low",
+  "tempMedium": "Medium",
+  "tempHigh": "High",
+
+  "tabStandards": "Standards",
+  "tabCustom": "Custom"
 }

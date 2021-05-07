@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-//import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+//enum heatSteps {low, medium, high}
 
 class GloveSettings extends StatefulWidget {
   @override
@@ -13,6 +15,11 @@ class _GloveSettingsState extends State<GloveSettings> {
   final double minDegree = 0;
   final double maxDegree = 100;
   final double thermostatWidth = 33;
+  int selectedRadioTile;
+  int selectedRadio;
+
+
+  List<String> options = ["tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
 
   double _degreeValue = 100;
   int batteryPercentage = 100;
@@ -35,6 +42,19 @@ class _GloveSettingsState extends State<GloveSettings> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    selectedRadio = 0;
+    selectedRadioTile = 0;
+  }
+
+  setSelectedRadioTile(int val) {
+    setState(() {
+      selectedRadioTile = val;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: DefaultTabController(
@@ -43,7 +63,7 @@ class _GloveSettingsState extends State<GloveSettings> {
               appBar: AppBar(
                 backgroundColor: Color(0xFF6223EE),
                 bottom: TabBar(
-                  tabs: [Tab(text: "Standarder"), Tab(text: "Tilpasset")],
+                  tabs: [Tab(text: "tabStandards".tr()), Tab(text: "tabCustom".tr())],
                 ),
                 leading: IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -54,7 +74,46 @@ class _GloveSettingsState extends State<GloveSettings> {
               //Tab-innhold
               body: TabBarView(
                 children: [
-                  Text("Trinnmeny"), //add radio-menu here
+                  //Text("Trinnmeny"), //add radio-menu here
+                  Column(
+                    children: <Widget>[
+                      RadioListTile(
+                        value: 1, 
+                        groupValue: selectedRadioTile,
+                        title: Text(options[0]), 
+                        onChanged: (val) {
+                          print("Pressed radio: " + options[0]);
+                          setSelectedRadioTile(val);
+                        },
+                        activeColor: Color(0xFF6223EE),
+                        selected: false,
+                      ),
+                      RadioListTile(
+                        value: 2, 
+                        groupValue: selectedRadioTile,
+                        title: Text(options[1]), 
+                        onChanged: (val) {
+                          print("Pressed radio: " + options[1]);
+                          setSelectedRadioTile(val);
+                        },
+                        activeColor: Color(0xFF6223EE),
+                        selected: false,
+                      ),
+                      RadioListTile(
+                        value: 3, 
+                        groupValue: selectedRadioTile,
+                        title: Text(options[2]), 
+                        onChanged: (val) {
+                          print("Pressed radio: " + options[2]);
+                          setSelectedRadioTile(val);
+                        },
+                        activeColor: Color(0xFF6223EE),
+                        selected: false,
+                      )
+                    ],
+                  ),
+                  
+                  
                   Column(
                     children: [
                       SfRadialGauge(
