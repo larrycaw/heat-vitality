@@ -39,7 +39,13 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
+  flutter_native_splash: ^1.1.8+4
 
+flutter_native_splash:
+  color: "#42a5f5"
+  image: assets/logo/heat_vitality_splash.png
+  android: true
+  ios: true
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
