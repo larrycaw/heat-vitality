@@ -4,6 +4,7 @@ import 'package:heat_vitality/pages/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:heat_vitality/pages/bluetooth.dart';
 import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/icons/glove_icon_icons.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -41,17 +42,19 @@ class _DashboardState extends State<Dashboard> {
                       ).then((value) => setState(() {})),
                   child: Card(
                       elevation: 15,
-                      child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            ListTile(
-                                leading: Icon(Icons.album),
-                                title: Text(
-                                    glove.getName + "'s " + "heatGlove".tr()),
-                                subtitle: Text(glove.getBattery.toString() +
-                                    "% " +
-                                    "battery".tr())),
-                          ]))),
+                      child: Column(children: <Widget>[
+                        ListTile(
+                            leading: Container(
+                                child: Icon(
+                              GloveIcon.glove,
+                              size: 30.0,
+                            )),
+                            title:
+                                Text(glove.getName + "'s " + "heatGlove".tr()),
+                            subtitle: Text(glove.getBattery.toString() +
+                                "% " +
+                                "battery".tr())),
+                      ]))),
           ])),
       // Navigasjonsbar på bunnen av siden
       bottomNavigationBar: BottomAppBar(
