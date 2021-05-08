@@ -18,7 +18,6 @@ class _GloveSettingsState extends State<GloveSettings> {
   int selectedRadioTile;
   int selectedRadio;
 
-
   List<String> options = ["tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
 
   double _degreeValue = 100;
@@ -31,9 +30,9 @@ class _GloveSettingsState extends State<GloveSettings> {
       _degreeValue = newValue;
       batteryPercentage = newValue.ceil();
       batteryIconPercentage = newValue.toInt() < 15 ? 15 : newValue.toInt();
-      if(batteryPercentage > 62) {
+      if (batteryPercentage > 62) {
         batteryIconColor = Colors.green;
-      } else if(batteryPercentage > 35) {
+      } else if (batteryPercentage > 35) {
         batteryIconColor = Colors.amber[600];
       } else {
         batteryIconColor = Colors.red;
@@ -63,7 +62,10 @@ class _GloveSettingsState extends State<GloveSettings> {
               appBar: AppBar(
                 backgroundColor: Color(0xFF6223EE),
                 bottom: TabBar(
-                  tabs: [Tab(text: "tabStandards".tr()), Tab(text: "tabCustom".tr())],
+                  tabs: [
+                    Tab(text: "tabStandards".tr()),
+                    Tab(text: "tabCustom".tr())
+                  ],
                 ),
                 leading: IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -75,12 +77,24 @@ class _GloveSettingsState extends State<GloveSettings> {
               body: TabBarView(
                 children: [
                   //Text("Trinnmeny"), //add radio-menu here
+
                   Column(
                     children: <Widget>[
+                      Row(
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.only(top: 10, left: 20),
+                              child: Text(
+                                "stepChoice".tr(),
+                                style: TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ),
                       RadioListTile(
-                        value: 1, 
+                        value: 1,
                         groupValue: selectedRadioTile,
-                        title: Text(options[0]), 
+                        title: Text(options[0]),
                         onChanged: (val) {
                           print("Pressed radio: " + options[0]);
                           setSelectedRadioTile(val);
@@ -89,9 +103,9 @@ class _GloveSettingsState extends State<GloveSettings> {
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 2, 
+                        value: 2,
                         groupValue: selectedRadioTile,
-                        title: Text(options[1]), 
+                        title: Text(options[1]),
                         onChanged: (val) {
                           print("Pressed radio: " + options[1]);
                           setSelectedRadioTile(val);
@@ -100,9 +114,9 @@ class _GloveSettingsState extends State<GloveSettings> {
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 3, 
+                        value: 3,
                         groupValue: selectedRadioTile,
-                        title: Text(options[2]), 
+                        title: Text(options[2]),
                         onChanged: (val) {
                           print("Pressed radio: " + options[2]);
                           setSelectedRadioTile(val);
@@ -112,8 +126,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                       )
                     ],
                   ),
-                  
-                  
+
                   Column(
                     children: [
                       SfRadialGauge(
@@ -165,7 +178,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                                   _degreeValue.ceil().toString() + '°C',
                                   style: TextStyle(
                                     fontSize: 50,
-                                    fontWeight: FontWeight .bold,
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
                                 ),
@@ -189,7 +202,8 @@ class _GloveSettingsState extends State<GloveSettings> {
                                       color: Colors.black,
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.fromLTRB(28, 19, 0, 0),
+                                      padding:
+                                          EdgeInsets.fromLTRB(28, 19, 0, 0),
                                       child: Container(
                                         decoration: new BoxDecoration(
                                           color: Colors.red,

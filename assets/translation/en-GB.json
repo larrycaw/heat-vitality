@@ -9,7 +9,7 @@
   "notConnected": "Not connected",
 
   "about": "About",
-  "title": "Title",
+  "title": "Name",
   "description": "Description",
   "forgetDevice": "Forget this device",
 
@@ -30,5 +30,9 @@
   "tempHigh": "High",
 
   "tabStandards": "Standards",
-  "tabCustom": "Custom"
+  "tabCustom": "Custom",
+
+  "heatGlove": "Heat glove",
+  "battery": "Battery",
+  "stepChoice": "Choice of heat steps"
 }

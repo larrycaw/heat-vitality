@@ -18,6 +18,7 @@ void main() => runApp(
         path: translationPath,
         fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           initialRoute: "/dashboard",
           routes: {
             "/old_index": (context) => BottomNavigation(),

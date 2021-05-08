@@ -9,7 +9,7 @@
   "notConnected": "Ikke tilkoblet",
 
   "about": "Om",
-  "title": "Tittel",
+  "title": "Navn",
   "description": "Beskrivelse",
   "forgetDevice": "Glem denne enheten",
 
@@ -30,5 +30,9 @@
   "tempHigh": "Sterk",
 
   "tabStandards": "Standardvalg",
-  "tabCustom": "Tilpass selv"
+  "tabCustom": "Tilpass selv",
+
+  "heatGlove": "Varmehanske",
+  "battery": "Batteri",
+  "stepChoice": "Valg av varmesteg"
 }
