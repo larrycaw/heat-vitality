@@ -7,6 +7,8 @@ class Glove {
   bool myDevice;
   bool isConnecting;
   bool isConnected;
+  static int devicesConnectedCount = 0;
+  static int devicesConnectingCount = 0;
 
   Glove({this.name, this.desc, this.battery, this.heatStep, this.heatCustom, this.myDevice, this.isConnecting, this.isConnected});
 
@@ -64,11 +66,28 @@ class Glove {
   void addDeviceToMyDevices() => this.myDevice = true;
   void removeDeviceFromMyDevices() => this.myDevice = false;
 
+
   get getIsConnecting => this.isConnecting;
-  void startConnecting() => this.isConnecting = true;
-  void stopConnecting() => this.isConnecting = false;
+
+  void startConnecting() {
+    this.isConnecting = true;
+    devicesConnectingCount++;
+  }
+  void stopConnecting() {
+    this.isConnecting = false;
+    devicesConnectingCount--;
+  }
+
 
   get getIsConnected => this.isConnected;
-  void connect() => this.isConnected = true;
-  void disconnect() => this.isConnected = false;
+
+  void connect() {
+    this.isConnected = true;
+    devicesConnectedCount++;
+  }
+
+  void disconnect() {
+    this.isConnected = false;
+    devicesConnectedCount--;
+  }
 }
