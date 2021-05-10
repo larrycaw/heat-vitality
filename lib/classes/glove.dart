@@ -62,7 +62,7 @@ class Glove {
   get getHeatCustom => this.heatCustom;
   set setHeatCustom(int heatCustom) => this.heatCustom = heatCustom;
 
-  get getMyDevice => this.myDevice;
+  get getMyDeviceState => this.myDevice;
   void addDeviceToMyDevices() => this.myDevice = true;
   void removeDeviceFromMyDevices() => this.myDevice = false;
 
