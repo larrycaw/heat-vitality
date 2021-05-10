@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:heat_vitality/pages/glove_settings.dart';
+import 'package:heat_vitality/pages/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:heat_vitality/pages/bluetooth.dart';
+import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/icons/glove_icon_icons.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -7,51 +12,76 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  List<Glove> gloves;
+
+  @override
+  void initState() {
+    super.initState();
+    gloves = Glove.getGloves();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Tilkoblede produkter
-      // (Fremtidig forbedring: hente enheter fra liste generert fra tilkoblede enheter)
-      body: Container(
-        margin: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: [
-            Text(
-              'units'.tr(),
-              style: TextStyle(fontSize: 26),
-              textAlign: TextAlign.left,
-            ),
-            GestureDetector(
-                onTap: () => Navigator.pushNamed(context, "/glove_settings"),
-                child: Card(
-                  elevation: 15,
-                  child:
-                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                    const ListTile(
-                        leading: Icon(Icons.album),
-                        title: Text("Adrian's varmehanske"),
-                        subtitle: Text("100% strøm"))
-                  ]),
-                ))
-          ],
-        ),
+    return WillPopScope(
+          onWillPop: () async => false,
+          child: Scaffold(
+        // Tilkoblede produkter
+        // (Fremtidig forbedring: hente enheter fra liste generert fra tilkoblede enheter)
+        body: Container(
+            margin: const EdgeInsets.all(20.0),
+            child: ListView(children: [
+              Text(
+                'units'.tr(),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                //textAlign: TextAlign.left,
+              ),
+              for (Glove glove in gloves)
+                GestureDetector(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => GloveSettings()),
+                        ).then((value) => setState(() {})),
+                    child: Card(
+                        elevation: 15,
+                        child: Column(children: <Widget>[
+                          ListTile(
+                              leading: Container(
+                                  child: Icon(
+                                GloveIcon.glove,
+                                size: 30.0,
+                              )),
+                              title:
+                                  Text(glove.getName + "'s " + "heatGlove".tr()),
+                              subtitle: Text(glove.getBattery.toString() +
+                                  "% " +
+                                  "battery".tr())),
+                        ]))),
+            ])),
+        // Navigasjonsbar på bunnen av siden
+        bottomNavigationBar: BottomAppBar(
+            child: Row(children: [
+              IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Settings()),
+                      ).then((value) => setState(
+                          () {})), //Navigator.pushNamed(context, "/settings"),
+                  color: Colors.white)
+            ]),
+            color: Color(0xFF6223EE)),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Bluetooth()),
+                ).then((value) =>
+                    setState(() {})), //Navigator.pushNamed(context, "/"),
+            backgroundColor: Color(0xFF03DAC5),
+            foregroundColor: Colors.black),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       ),
-      // Navigasjonsbar på bunnen av siden
-      bottomNavigationBar: BottomAppBar(
-        child: Row(children: [
-          IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () => Navigator.pushNamed(context, "/settings"),
-              color: Colors.white)
-        ]),
-        color: Color(0xFF6223EE)
-      ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => Navigator.pushNamed(context, "/"),
-          backgroundColor: Color(0xFF03DAC5),
-          foregroundColor: Colors.black),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }

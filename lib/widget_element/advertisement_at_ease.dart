@@ -3,12 +3,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:heat_vitality/variables/global_variables.dart';
 
 class AdvertisementAtEase extends StatelessWidget {
-  void goToAtEaseWebsite() async{
+  void goToAtEaseWebsite() async {
     if (await canLaunch(urlAtEase)) {
       print('Trying to launch');
       await launch(urlAtEase);
-    }
-    else
+    } else
       // can't launch url, there is some error
       throw "Could not launch $urlAtEase";
   }
@@ -26,14 +25,16 @@ class AdvertisementAtEase extends StatelessWidget {
                 primary: Colors.white,
                 onSurface: Colors.grey,
               ),
-              onPressed: (){
+              onPressed: () {
                 print('Link button pressed');
                 goToAtEaseWebsite();
               },
               child: Image.asset(logoPath + atEaseLogo),
             ),
           ),
-          SizedBox(height: 40,),
+          SizedBox(
+            height: 40,
+          ),
         ],
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:heat_vitality/pages/about_bluetooth_device.dart';
 import 'package:heat_vitality/pages/change_bluetooth_info.dart';
@@ -8,6 +10,7 @@ import 'package:heat_vitality/pages/bluetooth.dart';
 import 'package:heat_vitality/pages/settings.dart';
 import 'package:heat_vitality/pages/dashboard.dart';
 import "package:heat_vitality/pages/glove_settings.dart";
+import 'package:heat_vitality/splash.dart';
 
 void main() => runApp(
       EasyLocalization(
@@ -18,15 +21,17 @@ void main() => runApp(
         path: translationPath,
         fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
         child: MaterialApp(
-          initialRoute: "/dashboard",
+          debugShowCheckedModeBanner: false,
+          initialRoute: "/splash",
           routes: {
             "/old_index": (context) => BottomNavigation(),
-            "/": (context) => Bluetooth(),
+            "/bluetooth": (context) => Bluetooth(),
             "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
             "/change_bluetooth_info": (context) => ChangeBluetoothInfo(),
             "/settings": (context) => Settings(),
-            "/dashboard": (context) => Dashboard(),
-            "/glove_settings": (context) => GloveSettings()
+            "/": (context) => Dashboard(),
+            "/glove_settings": (context) => GloveSettings(),
+            "/splash": (context) => SplashScreen()
           },
         ),
       ),

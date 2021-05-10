@@ -9,7 +9,7 @@
   "notConnected": "Not connected",
 
   "about": "About",
-  "title": "Title",
+  "title": "Name",
   "description": "Description",
   "forgetDevice": "Forget this device",
 
@@ -23,5 +23,16 @@
 
   "units": "Units",
   "mySettings": "Settings",
-  "myBluetoothDevices": "Connect to devices"
+  "myBluetoothDevices": "Connect to devices",
+
+  "tempLow": "Low",
+  "tempMedium": "Medium",
+  "tempHigh": "High",
+
+  "tabStandards": "Standards",
+  "tabCustom": "Custom",
+
+  "heatGlove": "Heat glove",
+  "battery": "Battery",
+  "stepChoice": "Choice of heat steps"
 }
