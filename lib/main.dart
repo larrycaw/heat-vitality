@@ -22,7 +22,7 @@ void main() => runApp(
         fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          //initialRoute: "/splash",
+          initialRoute: "/splash",
           routes: {
             "/old_index": (context) => BottomNavigation(),
             "/bluetooth": (context) => Bluetooth(),
