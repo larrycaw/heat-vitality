@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:heat_vitality/classes/glove.dart';
 
-class ChangeBluetoothInfo extends StatelessWidget {
+class ChangeBluetoothName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -10,24 +11,17 @@ class ChangeBluetoothInfo extends StatelessWidget {
 
     // Get parameter sent (when asking to open this page)
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-    String infoToChange;
+    Glove glove;
 
     if (arguments != null) {
-      infoToChange = arguments['infoToChange'];
-      newValueController.text = arguments['oldValue'];
+      glove = arguments['glove'];
+      newValueController.text = glove.getName;
     }
 
-    // Send new value back to page that asked for it
+    // Save and go back to previous page
     void changeValue() {
-      if(infoToChange == 'name') {
-        Navigator.pop(context, {
-          'newName': newValueController.text,
-        });
-      } else if(infoToChange == 'description') {
-        Navigator.pop(context, {
-          'newDescription': newValueController.text,
-        });
-      }
+      glove.setName = newValueController.text;
+      Navigator.pop(context);
     }
 
 

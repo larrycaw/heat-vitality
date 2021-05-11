@@ -100,7 +100,7 @@ class BtListElement extends StatelessWidget {
                     dynamic result = await Navigator.pushNamed(
                       context,
                       "/about_bluetooth_device",
-                      arguments: <String, String>{'bdAddr': '01:22:33:44:55:66'},
+                      arguments: <String, Glove>{'glove': glove},
                     );
                     if(result != null) {
                       if (result['forgetDevice']) onForgetDevice();

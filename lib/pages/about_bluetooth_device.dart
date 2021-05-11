@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:heat_vitality/widget_element/advertisement_at_ease.dart';
+import 'package:heat_vitality/classes/glove.dart';
 
 class AboutBluetoothDevice extends StatefulWidget {
   @override
@@ -19,11 +19,11 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
   Widget build(BuildContext context) {
     // Get parameter sent (when asking to open this page)
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-    String bdAddr;
+    Glove glove;
 
     if (arguments != null) {
-      bdAddr = arguments['bdAddr'];
-      print('bdAddr received: $bdAddr');
+      glove = arguments['glove'];
+      print('Glove received: $glove');
     }
 
     return Scaffold(
@@ -59,23 +59,18 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               height: 84,
               child: TextButton(
                 onPressed: () async {
-                  print('"Change bt device title"-button pressed');
-                  dynamic result = await Navigator.pushNamed(
+                  print('"Change bt device name"-button pressed');
+                  await Navigator.pushNamed(
                     context,
-                    "/change_bluetooth_info",
-                    arguments: <String, String>{
-                      'bdAddr': bdAddr,
-                      'infoToChange': 'title',
-                      'oldValue': bluetoothDevices[bdAddr]['title'],
+                    "/change_bluetooth_name",
+                    arguments: <String, Glove>{
+                      'glove': glove,
                     },
                   );
 
-                  if (result != null) {
-                    print('Result from "change_bt_info": $result');
-                    setState(() {
-                      bluetoothDevices[bdAddr]['title'] = result['newTitle'];
-                    });
-                  }
+                  setState(() {
+                    print('Back from change_bluetooth_name.dart');
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
@@ -98,9 +93,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            bdAddr != null
-                                ? bluetoothDevices[bdAddr]['title']
-                                : "Could not get value",
+                            glove.getName,
                             style: TextStyle(
                               fontSize: 17,
                               color: Colors.grey[700],
@@ -133,23 +126,17 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
               child: TextButton(
                 onPressed: () async {
                   print('"Change bt device description"-button pressed');
-                  dynamic result = await Navigator.pushNamed(
+                  await Navigator.pushNamed(
                     context,
-                    "/change_bluetooth_info",
-                    arguments: <String, String>{
-                      'bdAddr': bdAddr,
-                      'infoToChange': 'description',
-                      'oldValue': bluetoothDevices[bdAddr]['description'],
+                    "/change_bluetooth_description",
+                    arguments: <String, Glove>{
+                      'glove': glove,
                     },
                   );
 
-                  if (result != null) {
-                    print('Result from "change_bt_info": $result');
-                    setState(() {
-                      bluetoothDevices[bdAddr]['description'] =
-                          result['newDescription'];
-                    });
-                  }
+                  setState(() {
+                    print('Back from change_bluetooth_description.dart');
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
@@ -172,9 +159,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            bdAddr != null
-                                ? bluetoothDevices[bdAddr]['description']
-                                : "Could not get value",
+                            glove.getDesc,
                             style: TextStyle(
                               fontSize: 17,
                               color: Colors.grey[700],
