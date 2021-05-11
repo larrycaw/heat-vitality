@@ -13,15 +13,6 @@ class Bluetooth extends StatefulWidget {
 }
 
 class _BluetoothState extends State<Bluetooth> {
-  // BORT if can use global_variables.dart instead
-  // List<Glove> gloves;
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   gloves = Glove.getGloves();
-  // }
-
 
   void connectBluetoothDevice(Glove glove) {
     setState(() {

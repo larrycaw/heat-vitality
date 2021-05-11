@@ -13,6 +13,16 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  // BORT if can use global_variables.dart instead
+  // List<Glove> gloves;
+  //
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   gloves = Glove.getGloves();
+  // }
+
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -21,36 +31,43 @@ class _DashboardState extends State<Dashboard> {
         // Tilkoblede produkter
         // (Fremtidig forbedring: hente enheter fra liste generert fra tilkoblede enheter)
         body: Container(
-            margin: const EdgeInsets.all(20.0),
-            child: ListView(children: [
+          margin: const EdgeInsets.all(20.0),
+          child: ListView(
+            children: [
               Text(
                 'units'.tr(),
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 //textAlign: TextAlign.left,
               ),
               for (Glove glove in gloves)
-                GestureDetector(
+                if (glove.getIsConnected)
+                  GestureDetector(
                     onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => GloveSettings()),
-                        ).then((value) => setState(() {})),
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GloveSettings()),
+                    ).then((value) => setState(() {})),
                     child: Card(
-                        elevation: 15,
-                        child: Column(children: <Widget>[
-                          ListTile(
-                              leading: Container(
-                                  child: Icon(
-                                GloveIcon.glove,
-                                size: 30.0,
-                              )),
-                              title:
-                                  Text(glove.getName + "'s " + "heatGlove".tr()),
-                              subtitle: Text(glove.getBattery.toString() +
-                                  "% " +
-                                  "battery".tr())),
-                        ]))),
-            ])),
+                      elevation: 15,
+                      child: Column(children: <Widget>[
+                        ListTile(
+                            leading: Container(
+                                child: Icon(
+                                  GloveIcon.glove,
+                                  size: 30.0,
+                                )),
+                            title:
+                            Text(glove.getName + "'s " + "heatGlove".tr()),
+                            subtitle: Text(glove.getBattery.toString() +
+                                "% " +
+                                "battery".tr())),
+                      ],
+                      ),
+                    ),
+                  ),
+            ],
+          ),
+        ),
         // Navigasjonsbar på bunnen av siden
         bottomNavigationBar: BottomAppBar(
             child: Row(children: [
