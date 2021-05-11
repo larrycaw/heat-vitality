@@ -83,7 +83,7 @@ class _AboutBluetoothDeviceState extends State<AboutBluetoothDevice> {
                       width: 10,
                     ),
                     Text(
-                      'title'.tr(),
+                      'name'.tr(),
                       style: TextStyle(
                         fontSize: 17,
                       ),

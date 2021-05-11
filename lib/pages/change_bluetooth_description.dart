@@ -41,7 +41,7 @@ class ChangeBluetoothDescription extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'about'.tr(),
+                  'description'.tr(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -58,7 +58,7 @@ class ChangeBluetoothDescription extends StatelessWidget {
             ),
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 25),
-              hintText: 'Enter a new description',
+              hintText: 'textHintDescription'.tr(),
             ),
           ),
           SizedBox(height: 70,),
@@ -68,8 +68,8 @@ class ChangeBluetoothDescription extends StatelessWidget {
                 // Tells the user that he/she must insert text
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: const Text(
-                      'The textfield must have a value',
+                    content: Text(
+                      'invalidValue'.tr(),
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -85,7 +85,7 @@ class ChangeBluetoothDescription extends StatelessWidget {
                 changeValue();
               }
             },
-            child: Text('Save'),
+            child: Text('saveButton'.tr()),
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all(Colors.black),
               backgroundColor: MaterialStateProperty.all(Color(0xFF03DAC5)),
