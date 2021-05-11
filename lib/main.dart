@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:heat_vitality/pages/about_bluetooth_device.dart';
 import 'package:heat_vitality/pages/change_bluetooth_name.dart';
 import 'package:heat_vitality/pages/change_bluetooth_description.dart';
-import 'bottom_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:heat_vitality/pages/bluetooth.dart';
@@ -25,14 +22,14 @@ void main() => runApp(
           debugShowCheckedModeBanner: false,
           initialRoute: "/splash",
           routes: {
+            "/splash": (context) => SplashScreen(),
+            "/": (context) => Dashboard(),
             "/bluetooth": (context) => Bluetooth(),
             "/about_bluetooth_device": (context) => AboutBluetoothDevice(),
             "/change_bluetooth_name": (context) => ChangeBluetoothName(),
             "/change_bluetooth_description": (context) => ChangeBluetoothDescription(),
-            "/settings": (context) => Settings(),
-            "/": (context) => Dashboard(),
             "/glove_settings": (context) => GloveSettings(),
-            "/splash": (context) => SplashScreen()
+            "/settings": (context) => Settings(),
           },
         ),
       ),
