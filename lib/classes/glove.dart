@@ -36,7 +36,7 @@ class Glove {
       ),
       Glove(
         name: "Markus Solheim",
-        desc: "Varmehanske fra At Ease",
+        desc: "nigger",
         battery: 69,
         heatStep: 0,
         heatCustom: 0,

@@ -32,7 +32,10 @@
   "tabStandards": "Standardvalg",
   "tabCustom": "Tilpass selv",
 
-  "heatGlove": "Varmehanske",
+  "heatGlove": "Varmehansker",
   "battery": "Batteri",
-  "stepChoice": "Valg av varmesteg"
+  "stepChoice": "Valg av varmesteg",
+  "customize": "Justér selv",
+  "stdrdGloveDesc": "Varmehanske fra At Ease"
+
 }

@@ -129,6 +129,17 @@ class _GloveSettingsState extends State<GloveSettings> {
 
                   Column(
                     children: [
+                      Row(
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.only(top: 10, left: 20),
+                              child: Text(
+                                "customize".tr(),
+                                style: TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ),
                       SfRadialGauge(
                         axes: <RadialAxis>[
                           RadialAxis(
@@ -175,7 +186,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                                 axisValue: 5,
                                 positionFactor: 0.1,
                                 widget: Text(
-                                  _degreeValue.ceil().toString() + '°C',
+                                  _degreeValue.ceil().toString() + '%',
                                   style: TextStyle(
                                     fontSize: 50,
                                     fontWeight: FontWeight.bold,
@@ -187,70 +198,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Stack(
-                                  children: [
-                                    Icon(
-                                      Icons.battery_full,
-                                      size: 80,
-                                      color: Colors.black,
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(28, 19, 0, 0),
-                                      child: Container(
-                                        decoration: new BoxDecoration(
-                                          color: Colors.red,
-                                          borderRadius: new BorderRadius.all(
-                                            Radius.circular(2.0),
-                                          ),
-                                        ),
-                                        width: 24,
-                                        height: 50,
-                                        child: Column(
-                                          children: [
-                                            Expanded(
-                                              flex: 98 - batteryIconPercentage,
-                                              child: Container(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                            Expanded(
-                                              flex: 0 + batteryIconPercentage,
-                                              child: Container(
-                                                color: batteryIconColor,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Row(
-                              children: [
-                                Text(
-                                  '$batteryPercentage%',
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+
                     ],
                   )
                 ],
