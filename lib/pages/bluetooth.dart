@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:heat_vitality/widget_element/app_bar.dart';
 import 'package:heat_vitality/widget_element/bluetooth_list_element.dart';
-import 'package:heat_vitality/variables/global_variables.dart';
+import 'package:heat_vitality/classes/glove.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class Bluetooth extends StatefulWidget {
@@ -12,45 +12,48 @@ class Bluetooth extends StatefulWidget {
 }
 
 class _BluetoothState extends State<Bluetooth> {
-  void connectBluetoothDevice(String key) {
+  List<Glove> gloves;
+
+  @override
+  void initState() {
+    super.initState();
+    gloves = Glove.getGloves();
+  }
+
+
+  void connectBluetoothDevice(Glove glove) {
     setState(() {
-      devicesConnectingCount++;
-      bluetoothDevices[key]['isConnecting'] = true;
+      glove.startConnecting();
     });
     Timer(Duration(seconds: 3), () {
       setState(() {
-        bluetoothDevices[key]['isConnecting'] = false;
-        devicesConnectingCount--;
-        bluetoothDevices[key]['isConnected'] = true;
-        devicesConnectedCount++;
+        glove.stopConnecting();
+        glove.connect();
         print('Bt device connected');
+        if(!glove.myDevice) {
+          glove.addDeviceToMyDevices();
+          print('Device added');
+        }
       });
     });
   }
 
-  void disconnectBluetoothDevice(String key) {
+  void disconnectBluetoothDevice(Glove glove) {
     setState(() {
-      bluetoothDevices[key]['isConnecting'] = true;
-      devicesConnectingCount++;
+      glove.startConnecting();
     });
     Timer(Duration(seconds: 1), () {
       setState(() {
-        bluetoothDevices[key]['isConnecting'] = false;
-        devicesConnectingCount--;
-        bluetoothDevices[key]['isConnected'] = false;
-        devicesConnectedCount--;
+        glove.stopConnecting();
+        glove.disconnect();
         print('Bt device disconnected');
       });
     });
   }
 
-  void addMyDevice(String key) {
-    bluetoothDevices[key]['myDevice'] = true;
-    print('Device added');
-  }
-
-  void forgetMyDevice(String key) {
-    bluetoothDevices[key]['myDevice'] = false;
+  void forgetMyDevice(Glove glove) {
+    glove.removeDeviceFromMyDevices();
+    disconnectBluetoothDevice(glove);
     print('Device forgotten');
   }
 
@@ -94,22 +97,14 @@ class _BluetoothState extends State<Bluetooth> {
           ),
           Column(
             children: [
-              for (var key in bluetoothDevices.keys)
-                if (bluetoothDevices[key]['myDevice'])
+              for (Glove glove in gloves)
+                if (glove.getMyDeviceState)
                   BtListElement(
-                    bdAddr: key,
-                    title: bluetoothDevices[key]['title'],
-                    description: bluetoothDevices[key]['description'],
-                    myDeviceState: bluetoothDevices[key]['myDevice'],
-                    isConnecting: bluetoothDevices[key]['isConnecting'],
-                    isConnected: bluetoothDevices[key]['isConnected'],
-                    iconImage: bluetoothDevices[key]['iconImage'],
-                    onConnectingStateChange: (bool isConnected) => isConnected
-                        ? disconnectBluetoothDevice(key)
-                        : connectBluetoothDevice(key),
-                    onForgetDevice: () => setState(() => forgetMyDevice(key)),
-                    onUpdateBluetoothDevice: () =>
-                        setState(() => print('Updated bt device')),
+                    glove: glove,
+                    onConnect: () => connectBluetoothDevice(glove),
+                    onDisconnect: () => disconnectBluetoothDevice(glove),
+                    onForgetDevice: () => setState(() => forgetMyDevice(glove)),
+                    onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
                   ),
             ],
           ),
@@ -132,20 +127,13 @@ class _BluetoothState extends State<Bluetooth> {
           Expanded(
             child: ListView(
               children: [
-                for (var key in bluetoothDevices.keys)
-                  if (!bluetoothDevices[key]['myDevice'])
+                for (Glove glove in gloves)
+                  if (!glove.getMyDeviceState)
                     BtListElement(
-                      bdAddr: key,
-                      title: bluetoothDevices[key]['title'],
-                      description: bluetoothDevices[key]['description'],
-                      myDeviceState: bluetoothDevices[key]['myDevice'],
-                      isConnecting: bluetoothDevices[key]['isConnecting'],
-                      isConnected: bluetoothDevices[key]['isConnected'],
-                      iconImage: bluetoothDevices[key]['iconImage'],
-                      onConnectingStateChange: (bool isConnected) => isConnected
-                          ? disconnectBluetoothDevice(key)
-                          : connectBluetoothDevice(key),
-                      onAddDevice: () => setState(() => addMyDevice(key)),
+                      glove: glove,
+                      onConnect: () => connectBluetoothDevice(glove),
+                      onDisconnect: () => disconnectBluetoothDevice(glove),
+                      onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
                     ),
               ],
             ),
@@ -155,3 +143,4 @@ class _BluetoothState extends State<Bluetooth> {
     );
   }
 }
+
