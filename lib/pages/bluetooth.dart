@@ -5,6 +5,7 @@ import 'package:heat_vitality/widget_element/app_bar.dart';
 import 'package:heat_vitality/widget_element/bluetooth_list_element.dart';
 import 'package:heat_vitality/classes/glove.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 
 class Bluetooth extends StatefulWidget {
   @override
@@ -12,13 +13,14 @@ class Bluetooth extends StatefulWidget {
 }
 
 class _BluetoothState extends State<Bluetooth> {
-  List<Glove> gloves;
-
-  @override
-  void initState() {
-    super.initState();
-    gloves = Glove.getGloves();
-  }
+  // BORT if can use global_variables.dart instead
+  // List<Glove> gloves;
+  //
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   gloves = Glove.getGloves();
+  // }
 
 
   void connectBluetoothDevice(Glove glove) {

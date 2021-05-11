@@ -1,4 +1,5 @@
 library led_controller.globals;
+import 'package:heat_vitality/classes/glove.dart';
 
 
 // _____________Constants_____________
@@ -25,5 +26,8 @@ final String atEaseLogo = 'atEaseLogo.png';
 
 
 // _____________Variables_____________
+// Gloves
+List<Glove> gloves = Glove.getGloves();
+
 // Dark mode
 bool darkModeOn = false;

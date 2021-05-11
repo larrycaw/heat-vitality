@@ -5,6 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:heat_vitality/pages/bluetooth.dart';
 import 'package:heat_vitality/classes/glove.dart';
 import 'package:heat_vitality/icons/glove_icon_icons.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -12,14 +13,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List<Glove> gloves;
-
-  @override
-  void initState() {
-    super.initState();
-    gloves = Glove.getGloves();
-  }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
