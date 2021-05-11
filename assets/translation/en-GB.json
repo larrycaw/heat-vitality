@@ -34,5 +34,7 @@
 
   "heatGlove": "Heat gloves",
   "battery": "Battery",
-  "stepChoice": "Choice of heat steps"
+  "stepChoice": "Choice of heat steps",
+  "customize": "Adjust yourself",
+  "stdrdGloveDesc": "Heat Glove from At Ease"
 }

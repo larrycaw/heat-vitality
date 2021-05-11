@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class Glove {
   String name;
   String desc;
@@ -16,7 +18,7 @@ class Glove {
     return <Glove>[
       Glove(
         name: "Isak",
-        desc: "Varmehanske fra At Ease",
+        desc: "stdrdGloveDesc".tr(),
         battery: 100,
         heatStep: 0,
         heatCustom: 0,
@@ -26,7 +28,7 @@ class Glove {
       ),
       Glove(
         name: "Adrian",
-        desc: "Varmehanske fra At Ease",
+        desc: "stdrdGloveDesc".tr(),
         battery: 40,
         heatStep: 0,
         heatCustom: 0,
@@ -36,8 +38,8 @@ class Glove {
       ),
       Glove(
         name: "Markus Solheim",
-        desc: "nigger",
-        battery: 69,
+        desc: "stdrdGloveDesc".tr(),
+        battery: 20,
         heatStep: 0,
         heatCustom: 0,
         myDevice: false,
