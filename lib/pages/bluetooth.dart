@@ -14,6 +14,14 @@ class Bluetooth extends StatefulWidget {
 
 class _BluetoothState extends State<Bluetooth> {
 
+  bool checkIfHaveMyDevice() {
+    // See if any bt devices are registered on MyDevice
+    for (Glove glove in gloves) {
+      if(glove.myDevice) return true;
+    }
+    return false;
+  }
+
   void connectBluetoothDevice(Glove glove) {
     setState(() {
       glove.startConnecting();
@@ -72,38 +80,42 @@ class _BluetoothState extends State<Bluetooth> {
               ],
             ),
           )),
+          if(checkIfHaveMyDevice())
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      'myDevices'.tr(),
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          if(checkIfHaveMyDevice())
+            Column(
+              children: [
+                for (Glove glove in gloves)
+                  if (glove.getMyDeviceState)
+                    BtListElement(
+                      glove: glove,
+                      onConnect: () => connectBluetoothDevice(glove),
+                      onDisconnect: () => disconnectBluetoothDevice(glove),
+                      onForgetDevice: () => setState(() => forgetMyDevice(glove)),
+                      onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
+                    ),
+              ],
+            ),
+          if(checkIfHaveMyDevice())
+            SizedBox(height: 25,),
           Container(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    'myDevices'.tr(),
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Column(
-            children: [
-              for (Glove glove in gloves)
-                if (glove.getMyDeviceState)
-                  BtListElement(
-                    glove: glove,
-                    onConnect: () => connectBluetoothDevice(glove),
-                    onDisconnect: () => disconnectBluetoothDevice(glove),
-                    onForgetDevice: () => setState(() => forgetMyDevice(glove)),
-                    onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
-                  ),
-            ],
-          ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(25, 80, 0, 5),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [

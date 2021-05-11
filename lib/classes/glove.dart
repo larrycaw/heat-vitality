@@ -43,7 +43,7 @@ class Glove {
         myDevice: false,
         isConnecting: false,
         isConnected: false,
-      )
+      ),
     ];
   }
 
