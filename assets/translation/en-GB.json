@@ -30,6 +30,7 @@
   "units": "Units",
   "mySettings": "Settings",
   "myBluetoothDevices": "Connect to devices",
+  "startupMessage": "Connect to a device to get started",
 
   "tempOff": "Off",
   "tempLow": "Low",
