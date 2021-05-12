@@ -23,6 +23,11 @@ final String defaultCountryCode = language['Norsk']['countryCode'];
 final String urlAtEase = 'https://atease.no/';
 final String atEaseLogo = 'atEaseLogo.png';
 
+// Glove heat steps
+final int lowHeat = 30;
+final int mediumHeat = 70;
+final int highHeat = 100;
+
 
 
 // _____________Variables_____________

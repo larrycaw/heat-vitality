@@ -14,33 +14,7 @@ class GloveSettings extends StatefulWidget {
 // kilder:
 // https://flutter.dev/docs/cookbook/design/tabs
 class _GloveSettingsState extends State<GloveSettings> {
-  final double thermostatWidth = 33;
-  double _powerPercentageValue = 100;
-  int selectedRadioTile;
-  int selectedRadio;
-
-  List<String> options = ["tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
-
-  void onDegreeChanged(double newValue) {
-    setState(() {
-      _powerPercentageValue = newValue;
-      //batteryPercentage = newValue.ceil();
-      //batteryIconPercentage = newValue.toInt() < 15 ? 15 : newValue.toInt();
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    selectedRadio = 1;
-    selectedRadioTile = 1;
-  }
-
-  setSelectedRadioTile(int val) {
-    setState(() {
-      selectedRadioTile = val;
-    });
-  }
+  List<String> options = ["tempOff".tr(), "tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
 
   @override
   Widget build(BuildContext context) {
@@ -87,41 +61,53 @@ class _GloveSettingsState extends State<GloveSettings> {
                         ],
                       ),
                       RadioListTile(
-                        value: 33,
+                        value: 0,
                         groupValue: glove.getHeatStep,
                         title: Text(options[0]),
                         onChanged: (val) {
-                          glove.setHeatStep = 33;
+                          glove.setHeatStep = val;
                           print("Pressed radio: " + options[0]);
-                          setSelectedRadioTile(val);
+                          setState(() {});
                         },
                         activeColor: Color(0xFF6223EE),
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 66,
+                        value: lowHeat,
                         groupValue: glove.getHeatStep,
                         title: Text(options[1]),
                         onChanged: (val) {
-                          glove.setHeatStep = 66;
+                          glove.setHeatStep = val;
                           print("Pressed radio: " + options[1]);
-                          setSelectedRadioTile(val);
+                          setState(() {});
                         },
                         activeColor: Color(0xFF6223EE),
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 99,
+                        value: mediumHeat,
                         groupValue: glove.getHeatStep,
                         title: Text(options[2]),
                         onChanged: (val) {
-                          glove.setHeatStep = 99;
+                          glove.setHeatStep = val;
                           print("Pressed radio: " + options[2]);
-                          setSelectedRadioTile(val);
+                          setState(() {});
                         },
                         activeColor: Color(0xFF6223EE),
                         selected: false,
-                      )
+                      ),
+                      RadioListTile(
+                        value: highHeat,
+                        groupValue: glove.getHeatStep,
+                        title: Text(options[3]),
+                        onChanged: (val) {
+                          glove.setHeatStep = val;
+                          print("Pressed radio: " + options[3]);
+                          setState(() {});
+                        },
+                        activeColor: Color(0xFF6223EE),
+                        selected: false,
+                      ),
                     ],
                   ),
 
@@ -156,20 +142,24 @@ class _GloveSettingsState extends State<GloveSettings> {
                                 ],
                                 stops: <double>[0.15, 0.5, 0.85],
                               ),
-                              thickness: thermostatWidth,
+                              thickness: 33,
                             ),
                             pointers: <GaugePointer>[
                               RangePointer(
                                 value: glove.getHeatCustom,
                                 cornerStyle: CornerStyle.bothCurve,
-                                width: thermostatWidth,
+                                width: 33,
                                 sizeUnit: GaugeSizeUnit.logicalPixel,
                                 color: Colors.transparent,
                               ),
                               MarkerPointer(
                                 value: glove.getHeatCustom,
                                 enableDragging: true,
-                                onValueChanged: onDegreeChanged,
+                                onValueChanged: (val) {
+                                  if (val < 0.5) glove.setHeatCustom = 0;
+                                  else glove.setHeatCustom = val;
+                                  setState(() {});
+                                },
                                 markerHeight: 40,
                                 markerWidth: 40,
                                 markerType: MarkerType.circle,

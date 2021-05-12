@@ -1,3 +1,5 @@
+import 'package:heat_vitality/variables/global_variables.dart';
+
 class Glove {
   String name;
   String desc;
@@ -66,12 +68,18 @@ class Glove {
 
   get getHeatStep => this.heatStep;
   set setHeatStep(int heatStep) {
-    this.heatCustom = heatStep.toDouble();
     this.heatStep = heatStep;
+    this.heatCustom = heatStep.toDouble();
   }
 
   get getHeatCustom => this.heatCustom;
-  set setHeatCustom(double heatCustom) => this.heatCustom = heatCustom;
+  set setHeatCustom(double heatCustom) {
+    this.heatCustom = heatCustom;
+    if (heatCustom == 0) this.heatStep = 0;
+    else if (heatCustom <= 40) this.heatStep = lowHeat;
+    else if (heatCustom <= 80) this.heatStep = mediumHeat;
+    else if (heatCustom <= 100) this.heatStep = highHeat;
+  }
 
   get getMyDeviceState => this.myDevice;
   void addDeviceToMyDevices() => this.myDevice = true;
