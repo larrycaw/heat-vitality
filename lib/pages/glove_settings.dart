@@ -13,31 +13,19 @@ class GloveSettings extends StatefulWidget {
 // kilder:
 // https://flutter.dev/docs/cookbook/design/tabs
 class _GloveSettingsState extends State<GloveSettings> {
-  final double minDegree = 0;
-  final double maxDegree = 100;
   final double thermostatWidth = 33;
+  double _powerPercentageValue = 100;
   int selectedRadioTile;
   int selectedRadio;
 
   List<String> options = ["tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
 
-  double _degreeValue = 100;
-  int batteryPercentage = 100;
-  int batteryIconPercentage = 100;
-  Color batteryIconColor = Colors.green;
 
   void onDegreeChanged(double newValue) {
     setState(() {
-      _degreeValue = newValue;
-      batteryPercentage = newValue.ceil();
-      batteryIconPercentage = newValue.toInt() < 15 ? 15 : newValue.toInt();
-      if (batteryPercentage > 62) {
-        batteryIconColor = Colors.green;
-      } else if (batteryPercentage > 35) {
-        batteryIconColor = Colors.amber[600];
-      } else {
-        batteryIconColor = Colors.red;
-      }
+      _powerPercentageValue = newValue;
+      //batteryPercentage = newValue.ceil();
+      //batteryIconPercentage = newValue.toInt() < 15 ? 15 : newValue.toInt();
     });
   }
 
@@ -143,8 +131,8 @@ class _GloveSettingsState extends State<GloveSettings> {
                       SfRadialGauge(
                         axes: <RadialAxis>[
                           RadialAxis(
-                            minimum: minDegree,
-                            maximum: maxDegree,
+                            minimum: 0,
+                            maximum: 100,
                             showLabels: false,
                             showTicks: false,
                             radiusFactor: 0.8,
@@ -162,14 +150,14 @@ class _GloveSettingsState extends State<GloveSettings> {
                             ),
                             pointers: <GaugePointer>[
                               RangePointer(
-                                value: _degreeValue,
+                                value: _powerPercentageValue,
                                 cornerStyle: CornerStyle.bothCurve,
                                 width: thermostatWidth,
                                 sizeUnit: GaugeSizeUnit.logicalPixel,
                                 color: Colors.transparent,
                               ),
                               MarkerPointer(
-                                value: _degreeValue,
+                                value: _powerPercentageValue,
                                 enableDragging: true,
                                 onValueChanged: onDegreeChanged,
                                 markerHeight: 40,
@@ -186,9 +174,9 @@ class _GloveSettingsState extends State<GloveSettings> {
                                 axisValue: 5,
                                 positionFactor: 0.1,
                                 widget: Text(
-                                  _degreeValue.ceil().toString() + '%',
+                                  _powerPercentageValue.ceil().toString() + '%',
                                   style: TextStyle(
-                                    fontSize: 50,
+                                    fontSize: 40,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
