@@ -62,7 +62,7 @@ class _BluetoothState extends State<Bluetooth> {
 
   void forgetMyDevice(Glove glove) {
     glove.removeDeviceFromMyDevices();
-    disconnectBluetoothDevice(glove);
+    if (glove.isConnected) disconnectBluetoothDevice(glove);
     print('Device forgotten');
   }
 
