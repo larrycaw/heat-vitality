@@ -10,7 +10,15 @@ class Glove {
   static int devicesConnectedCount = 0;
   static int devicesConnectingCount = 0;
 
-  Glove({this.name, this.desc, this.battery, this.heatStep, this.heatCustom, this.myDevice, this.isConnecting, this.isConnected});
+  Glove(
+      {this.name,
+      this.desc,
+      this.battery,
+      this.heatStep,
+      this.heatCustom,
+      this.myDevice,
+      this.isConnecting,
+      this.isConnected});
 
   static List<Glove> getGloves() {
     return <Glove>[
@@ -57,7 +65,10 @@ class Glove {
   set setBattery(battery) => this.battery = battery;
 
   get getHeatStep => this.heatStep;
-  set setHeatStep(int heatStep) => this.heatStep = heatStep;
+  set setHeatStep(int heatStep) {
+    this.heatCustom = heatStep.toDouble();
+    this.heatStep = heatStep;
+  }
 
   get getHeatCustom => this.heatCustom;
   set setHeatCustom(double heatCustom) => this.heatCustom = heatCustom;
@@ -66,18 +77,17 @@ class Glove {
   void addDeviceToMyDevices() => this.myDevice = true;
   void removeDeviceFromMyDevices() => this.myDevice = false;
 
-
   get getIsConnecting => this.isConnecting;
 
   void startConnecting() {
     this.isConnecting = true;
     devicesConnectingCount++;
   }
+
   void stopConnecting() {
     this.isConnecting = false;
     devicesConnectingCount--;
   }
-
 
   get getIsConnected => this.isConnected;
 

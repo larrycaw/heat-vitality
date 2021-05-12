@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -20,7 +21,6 @@ class _GloveSettingsState extends State<GloveSettings> {
 
   List<String> options = ["tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
 
-
   void onDegreeChanged(double newValue) {
     setState(() {
       _powerPercentageValue = newValue;
@@ -32,8 +32,8 @@ class _GloveSettingsState extends State<GloveSettings> {
   @override
   void initState() {
     super.initState();
-    selectedRadio = 0;
-    selectedRadioTile = 0;
+    selectedRadio = 1;
+    selectedRadioTile = 1;
   }
 
   setSelectedRadioTile(int val) {
@@ -73,7 +73,6 @@ class _GloveSettingsState extends State<GloveSettings> {
               body: TabBarView(
                 children: [
                   //Text("Trinnmeny"), //add radio-menu here
-
                   Column(
                     children: <Widget>[
                       Row(
@@ -88,10 +87,11 @@ class _GloveSettingsState extends State<GloveSettings> {
                         ],
                       ),
                       RadioListTile(
-                        value: 1,
-                        groupValue: selectedRadioTile,
+                        value: 33,
+                        groupValue: glove.getHeatStep,
                         title: Text(options[0]),
                         onChanged: (val) {
+                          glove.setHeatStep = 33;
                           print("Pressed radio: " + options[0]);
                           setSelectedRadioTile(val);
                         },
@@ -99,10 +99,11 @@ class _GloveSettingsState extends State<GloveSettings> {
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 2,
-                        groupValue: selectedRadioTile,
+                        value: 66,
+                        groupValue: glove.getHeatStep,
                         title: Text(options[1]),
                         onChanged: (val) {
+                          glove.setHeatStep = 66;
                           print("Pressed radio: " + options[1]);
                           setSelectedRadioTile(val);
                         },
@@ -110,10 +111,11 @@ class _GloveSettingsState extends State<GloveSettings> {
                         selected: false,
                       ),
                       RadioListTile(
-                        value: 3,
-                        groupValue: selectedRadioTile,
+                        value: 99,
+                        groupValue: glove.getHeatStep,
                         title: Text(options[2]),
                         onChanged: (val) {
+                          glove.setHeatStep = 99;
                           print("Pressed radio: " + options[2]);
                           setSelectedRadioTile(val);
                         },
@@ -194,7 +196,6 @@ class _GloveSettingsState extends State<GloveSettings> {
                           ),
                         ],
                       ),
-
                     ],
                   )
                 ],
