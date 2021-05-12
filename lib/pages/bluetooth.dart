@@ -161,7 +161,7 @@ class _BluetoothState extends State<Bluetooth> {
                 ),
               ),
               child: Center(
-                child: Text('No devices nearby'),
+                child: Text('noDevicesNearby'.tr()),
               ),
             ),
         ],

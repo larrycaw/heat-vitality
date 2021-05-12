@@ -7,6 +7,7 @@
   "otherDevices": "Devices nearby",
   "connected": "Connected",
   "notConnected": "Not connected",
+  "noDevicesNearby": "No devices nearby",
 
   "about": "About",
   "name": "Name",
