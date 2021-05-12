@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:heat_vitality/pages/glove_settings.dart';
 import 'package:heat_vitality/pages/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:heat_vitality/pages/bluetooth.dart';
@@ -13,15 +12,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  // BORT if can use global_variables.dart instead
-  // List<Glove> gloves;
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   gloves = Glove.getGloves();
-  // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +38,6 @@ class _DashboardState extends State<Dashboard> {
                       arguments: <String, Glove>{
                         'glove': glove,
                       },
-                      // MaterialPageRoute(
-                      //     builder: (context) => GloveSettings()),
                     ).then((value) => setState(() {})),
                     child: Card(
                       elevation: 15,
