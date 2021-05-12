@@ -14,7 +14,12 @@ class GloveSettings extends StatefulWidget {
 // kilder:
 // https://flutter.dev/docs/cookbook/design/tabs
 class _GloveSettingsState extends State<GloveSettings> {
-  List<String> options = ["tempOff".tr(), "tempLow".tr(), "tempMedium".tr(), "tempHigh".tr()];
+  List<String> options = [
+    "tempOff".tr(),
+    "tempLow".tr(),
+    "tempMedium".tr(),
+    "tempHigh".tr()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +32,7 @@ class _GloveSettingsState extends State<GloveSettings> {
     }
 
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: DefaultTabController(
             length: 2,
             child: Scaffold(
@@ -49,17 +55,6 @@ class _GloveSettingsState extends State<GloveSettings> {
                   //Text("Trinnmeny"), //add radio-menu here
                   Column(
                     children: <Widget>[
-                      Row(
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.only(top: 10, left: 20),
-                              child: Text(
-                                "stepChoice".tr(),
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold),
-                              )),
-                        ],
-                      ),
                       RadioListTile(
                         value: 0,
                         groupValue: glove.getHeatStep,
@@ -111,83 +106,71 @@ class _GloveSettingsState extends State<GloveSettings> {
                     ],
                   ),
 
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.only(top: 10, left: 20),
-                              child: Text(
-                                "customize".tr(),
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold),
-                              )),
-                        ],
-                      ),
-                      SfRadialGauge(
-                        axes: <RadialAxis>[
-                          RadialAxis(
-                            minimum: 0,
-                            maximum: 100,
-                            showLabels: false,
-                            showTicks: false,
-                            radiusFactor: 0.8,
-                            axisLineStyle: AxisLineStyle(
-                              cornerStyle: CornerStyle.bothCurve,
-                              gradient: const SweepGradient(
-                                colors: <Color>[
-                                  Colors.blue,
-                                  Colors.yellow,
-                                  Colors.red,
-                                ],
-                                stops: <double>[0.15, 0.5, 0.85],
-                              ),
-                              thickness: 33,
-                            ),
-                            pointers: <GaugePointer>[
-                              RangePointer(
-                                value: glove.getHeatCustom,
-                                cornerStyle: CornerStyle.bothCurve,
-                                width: 33,
-                                sizeUnit: GaugeSizeUnit.logicalPixel,
-                                color: Colors.transparent,
-                              ),
-                              MarkerPointer(
-                                value: glove.getHeatCustom,
-                                enableDragging: true,
-                                onValueChanged: (val) {
-                                  if (val < 0.5) glove.setHeatCustom = 0;
-                                  else glove.setHeatCustom = val;
-                                  setState(() {});
-                                },
-                                markerHeight: 40,
-                                markerWidth: 40,
-                                markerType: MarkerType.circle,
-                                color: Colors.white,
-                                borderWidth: 2,
-                                borderColor: Colors.black,
-                              ),
+                  Center(
+                      child: SfRadialGauge(
+                    axes: <RadialAxis>[
+                      RadialAxis(
+                        minimum: 0,
+                        maximum: 100,
+                        showLabels: false,
+                        showTicks: false,
+                        radiusFactor: 0.8,
+                        axisLineStyle: AxisLineStyle(
+                          cornerStyle: CornerStyle.bothCurve,
+                          gradient: const SweepGradient(
+                            colors: <Color>[
+                              Colors.blue,
+                              Colors.yellow,
+                              Colors.red,
                             ],
-                            annotations: <GaugeAnnotation>[
-                              GaugeAnnotation(
-                                angle: 90,
-                                axisValue: 5,
-                                positionFactor: 0.1,
-                                widget: Text(
-                                  glove.getHeatCustom.ceil().toString() + '%',
-                                  style: TextStyle(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              )
-                            ],
+                            stops: <double>[0.15, 0.5, 0.85],
                           ),
+                          thickness: 33,
+                        ),
+                        pointers: <GaugePointer>[
+                          RangePointer(
+                            value: glove.getHeatCustom,
+                            cornerStyle: CornerStyle.bothCurve,
+                            width: 33,
+                            sizeUnit: GaugeSizeUnit.logicalPixel,
+                            color: Colors.transparent,
+                          ),
+                          MarkerPointer(
+                            value: glove.getHeatCustom,
+                            enableDragging: true,
+                            onValueChanged: (val) {
+                              if (val < 0.5)
+                                glove.setHeatCustom = 0;
+                              else
+                                glove.setHeatCustom = val;
+                              setState(() {});
+                            },
+                            markerHeight: 40,
+                            markerWidth: 40,
+                            markerType: MarkerType.circle,
+                            color: Colors.white,
+                            borderWidth: 2,
+                            borderColor: Colors.black,
+                          ),
+                        ],
+                        annotations: <GaugeAnnotation>[
+                          GaugeAnnotation(
+                            angle: 90,
+                            axisValue: 5,
+                            positionFactor: 0.1,
+                            widget: Text(
+                              glove.getHeatCustom.ceil().toString() + '%',
+                              style: TextStyle(
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ],
-                  )
+                  ))
                 ],
               ),
             )));

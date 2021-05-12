@@ -13,11 +13,10 @@ class Bluetooth extends StatefulWidget {
 }
 
 class _BluetoothState extends State<Bluetooth> {
-
   bool checkIfHaveMyDevice() {
     // See if any bt devices are registered on MyDevice
     for (Glove glove in gloves) {
-      if(glove.myDevice) return true;
+      if (glove.myDevice) return true;
     }
     return false;
   }
@@ -25,7 +24,7 @@ class _BluetoothState extends State<Bluetooth> {
   bool checkIfNoMyDevice() {
     // See if there are no other bt devices
     for (Glove glove in gloves) {
-      if(!glove.myDevice) return false;
+      if (!glove.myDevice) return false;
     }
     return true;
   }
@@ -39,7 +38,7 @@ class _BluetoothState extends State<Bluetooth> {
         glove.stopConnecting();
         glove.connect();
         print('Bt device connected');
-        if(!glove.myDevice) {
+        if (!glove.myDevice) {
           glove.addDeviceToMyDevices();
           print('Device added');
         }
@@ -87,7 +86,7 @@ class _BluetoothState extends State<Bluetooth> {
               ],
             ),
           )),
-          if(checkIfHaveMyDevice())
+          if (checkIfHaveMyDevice())
             Container(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
@@ -104,7 +103,7 @@ class _BluetoothState extends State<Bluetooth> {
                 ),
               ),
             ),
-          if(checkIfHaveMyDevice())
+          if (checkIfHaveMyDevice())
             Column(
               children: [
                 for (Glove glove in gloves)
@@ -113,13 +112,17 @@ class _BluetoothState extends State<Bluetooth> {
                       glove: glove,
                       onConnect: () => connectBluetoothDevice(glove),
                       onDisconnect: () => disconnectBluetoothDevice(glove),
-                      onForgetDevice: () => setState(() => forgetMyDevice(glove)),
-                      onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
+                      onForgetDevice: () =>
+                          setState(() => forgetMyDevice(glove)),
+                      onUpdateBluetoothDevice: () =>
+                          setState(() => print('Updated bt device')),
                     ),
               ],
             ),
-          if(checkIfHaveMyDevice())
-            SizedBox(height: 25,),
+          if (checkIfHaveMyDevice())
+            SizedBox(
+              height: 25,
+            ),
           Container(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(25, 50, 0, 5),
@@ -146,7 +149,8 @@ class _BluetoothState extends State<Bluetooth> {
                         glove: glove,
                         onConnect: () => connectBluetoothDevice(glove),
                         onDisconnect: () => disconnectBluetoothDevice(glove),
-                        onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
+                        onUpdateBluetoothDevice: () =>
+                            setState(() => print('Updated bt device')),
                       ),
                 ],
               ),
@@ -172,4 +176,3 @@ class _BluetoothState extends State<Bluetooth> {
     );
   }
 }
-

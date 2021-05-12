@@ -34,7 +34,7 @@
   "tempOff": "Av",
   "tempLow": "Lav",
   "tempMedium": "Middels",
-  "tempHigh": "Sterk",
+  "tempHigh": "Høy",
 
   "tabStandards": "Standardvalg",
   "tabCustom": "Tilpass selv",
@@ -42,8 +42,8 @@
   "heatGlove": "Varmehansker",
   "battery": "Batteri",
   "stepChoice": "Valg av varmesteg",
-  "customize": "Justér selv",
-  "stdrdGloveDesc": "Varmehanske fra At Ease",
+  "customize": "Juster selv",
+  "stdrdGloveDesc": "Varmehansker fra At Ease",
   "connectToStart": "Koble til en enhet for å komme i gang"
 
 }
