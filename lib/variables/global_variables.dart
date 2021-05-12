@@ -11,9 +11,9 @@ final String logoPath = 'assets/logo/';
 
 // Translation
 final Map language = {
-  'English':  {'flagPath': 'en.png', 'languageCode': 'en', 'countryCode': 'GB'},
-  'Norsk':    {'flagPath': 'no.png', 'languageCode': 'no', 'countryCode': 'NO'},
-  'Sámegilli':     {'flagPath': 'smi.png', 'languageCode': 'smi', 'countryCode': 'NO'},
+  'English':    {'flagPath': 'en.png', 'languageCode': 'en', 'countryCode': 'GB'},
+  'Norsk':      {'flagPath': 'no.png', 'languageCode': 'no', 'countryCode': 'NO'},
+  'Sámegilli':  {'flagPath': 'smi.png', 'languageCode': 'smi', 'countryCode': 'NO'},
 };
 // Default language / fallbackLocale
 final String defaultLanguageCode = language['Norsk']['languageCode'];

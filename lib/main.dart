@@ -15,6 +15,7 @@ void main() => runApp(
         supportedLocales: [
           Locale('en', 'GB'),
           Locale('no', 'NO'),
+          Locale('smi', 'NO'),
         ],
         path: translationPath,
         fallbackLocale: Locale(defaultLanguageCode, defaultCountryCode),
