@@ -42,10 +42,14 @@ class _DashboardState extends State<Dashboard> {
               for (Glove glove in gloves)
                 if (glove.getIsConnected)
                   GestureDetector(
-                    onTap: () => Navigator.push(
+                    onTap: () => Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => GloveSettings()),
+                      "/glove_settings",
+                      arguments: <String, Glove>{
+                        'glove': glove,
+                      },
+                      // MaterialPageRoute(
+                      //     builder: (context) => GloveSettings()),
                     ).then((value) => setState(() {})),
                     child: Card(
                       elevation: 15,

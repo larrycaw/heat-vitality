@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/classes/glove.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -44,6 +44,14 @@ class _GloveSettingsState extends State<GloveSettings> {
 
   @override
   Widget build(BuildContext context) {
+    // Get parameter sent (when asking to open this page)
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    Glove glove;
+
+    if (arguments != null) {
+      glove = arguments['glove'];
+    }
+
     return MaterialApp(
         home: DefaultTabController(
             length: 2,
