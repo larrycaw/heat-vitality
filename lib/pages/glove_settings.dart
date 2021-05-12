@@ -158,14 +158,14 @@ class _GloveSettingsState extends State<GloveSettings> {
                             ),
                             pointers: <GaugePointer>[
                               RangePointer(
-                                value: _powerPercentageValue,
+                                value: glove.getHeatCustom,
                                 cornerStyle: CornerStyle.bothCurve,
                                 width: thermostatWidth,
                                 sizeUnit: GaugeSizeUnit.logicalPixel,
                                 color: Colors.transparent,
                               ),
                               MarkerPointer(
-                                value: _powerPercentageValue,
+                                value: glove.getHeatCustom,
                                 enableDragging: true,
                                 onValueChanged: onDegreeChanged,
                                 markerHeight: 40,
@@ -182,7 +182,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                                 axisValue: 5,
                                 positionFactor: 0.1,
                                 widget: Text(
-                                  _powerPercentageValue.ceil().toString() + '%',
+                                  glove.getHeatCustom.ceil().toString() + '%',
                                   style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,

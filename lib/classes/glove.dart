@@ -3,7 +3,7 @@ class Glove {
   String desc;
   int battery;
   int heatStep;
-  int heatCustom;
+  double heatCustom;
   bool myDevice;
   bool isConnecting;
   bool isConnected;
@@ -60,7 +60,7 @@ class Glove {
   set setHeatStep(int heatStep) => this.heatStep = heatStep;
 
   get getHeatCustom => this.heatCustom;
-  set setHeatCustom(int heatCustom) => this.heatCustom = heatCustom;
+  set setHeatCustom(double heatCustom) => this.heatCustom = heatCustom;
 
   get getMyDeviceState => this.myDevice;
   void addDeviceToMyDevices() => this.myDevice = true;
