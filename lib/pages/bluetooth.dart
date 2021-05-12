@@ -22,6 +22,14 @@ class _BluetoothState extends State<Bluetooth> {
     return false;
   }
 
+  bool checkIfNoMyDevice() {
+    // See if there are no other bt devices
+    for (Glove glove in gloves) {
+      if(!glove.myDevice) return false;
+    }
+    return true;
+  }
+
   void connectBluetoothDevice(Glove glove) {
     setState(() {
       glove.startConnecting();
@@ -66,8 +74,7 @@ class _BluetoothState extends State<Bluetooth> {
         update: () => setState(() => print('Updated')),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
               child: Padding(
@@ -129,20 +136,34 @@ class _BluetoothState extends State<Bluetooth> {
               ),
             ),
           ),
-          Expanded(
-            child: ListView(
-              children: [
-                for (Glove glove in gloves)
-                  if (!glove.getMyDeviceState)
-                    BtListElement(
-                      glove: glove,
-                      onConnect: () => connectBluetoothDevice(glove),
-                      onDisconnect: () => disconnectBluetoothDevice(glove),
-                      onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
-                    ),
-              ],
+          if (!checkIfNoMyDevice())
+            Expanded(
+              child: ListView(
+                children: [
+                  for (Glove glove in gloves)
+                    if (!glove.getMyDeviceState)
+                      BtListElement(
+                        glove: glove,
+                        onConnect: () => connectBluetoothDevice(glove),
+                        onDisconnect: () => disconnectBluetoothDevice(glove),
+                        onUpdateBluetoothDevice: () => setState(() => print('Updated bt device')),
+                      ),
+                ],
+              ),
             ),
-          ),
+          if (checkIfNoMyDevice())
+            Container(
+              height: 84,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                border: Border(
+                  bottom: BorderSide(color: Colors.grey[300]),
+                ),
+              ),
+              child: Center(
+                child: Text('No devices nearby'),
+              ),
+            ),
         ],
       ),
     );
