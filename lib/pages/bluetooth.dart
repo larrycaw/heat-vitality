@@ -161,7 +161,10 @@ class _BluetoothState extends State<Bluetooth> {
                 ),
               ),
               child: Center(
-                child: Text('noDevicesNearby'.tr()),
+                child: Text(
+                  'noDevicesNearby'.tr(),
+                  style: TextStyle(color: Colors.grey[800]),
+                ),
               ),
             ),
         ],
