@@ -1,6 +1,7 @@
 import 'package:heat_vitality/variables/global_variables.dart';
 
 class Glove {
+  String key;
   String name;
   String desc;
   int battery;
@@ -9,22 +10,23 @@ class Glove {
   bool myDevice;
   bool isConnecting;
   bool isConnected;
-  static int devicesConnectedCount = 0;
-  static int devicesConnectingCount = 0;
 
-  Glove(
-      {this.name,
-      this.desc,
-      this.battery,
-      this.heatStep,
-      this.heatCustom,
-      this.myDevice,
-      this.isConnecting,
-      this.isConnected});
+  Glove({
+    this.key,
+    this.name,
+    this.desc,
+    this.battery,
+    this.heatStep,
+    this.heatCustom,
+    this.myDevice,
+    this.isConnecting,
+    this.isConnected,
+  });
 
   static List<Glove> getGloves() {
     return <Glove>[
       Glove(
+        key: "111",
         name: "Isak",
         desc: "Varmehanske fra At Ease",
         battery: 100,
@@ -35,6 +37,7 @@ class Glove {
         isConnected: false,
       ),
       Glove(
+        key: "222",
         name: "Adrian",
         desc: "Varmehanske fra At Ease",
         battery: 40,
@@ -45,6 +48,7 @@ class Glove {
         isConnected: false,
       ),
       Glove(
+        key: "333",
         name: "Markus Solheim",
         desc: "Varmehanske fra At Ease",
         battery: 69,
@@ -57,11 +61,13 @@ class Glove {
     ];
   }
 
-  get getDesc => this.desc;
-  set setDesc(String desc) => this.desc = desc;
+  get getKey => this.key;
 
   get getName => name;
   set setName(String name) => this.name = name;
+
+  get getDesc => this.desc;
+  set setDesc(String desc) => this.desc = desc;
 
   get getBattery => battery;
   set setBattery(battery) => this.battery = battery;
@@ -89,23 +95,19 @@ class Glove {
 
   void startConnecting() {
     this.isConnecting = true;
-    devicesConnectingCount++;
   }
 
   void stopConnecting() {
     this.isConnecting = false;
-    devicesConnectingCount--;
   }
 
   get getIsConnected => this.isConnected;
 
   void connect() {
     this.isConnected = true;
-    devicesConnectedCount++;
   }
 
   void disconnect() {
     this.isConnected = false;
-    devicesConnectedCount--;
   }
 }
