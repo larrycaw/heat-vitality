@@ -7,16 +7,16 @@
   "otherDevices": "Eará Ovttadagat",
   "connected": "Čatnasan",
   "notConnected": "Boatkanan",
-  "noDevicesNearby": "Ingen enheter i nærheten",
+  "noDevicesNearby": "Ii Gávdnan Ovttadaga",
 
   "about": "Birra",
   "name": "Namahus",
   "description": "Čilgehus",
   "forgetDevice": "Vajálduhtte Dán Ovttadaga",
 
-  "saveButton": "Lagre",
-  "textHintName": "Skriv inn et nytt navn",
-  "textHintDescription": "Skriv inn en ny beskrivelse",
+  "saveButton": "Vurke",
+  "textHintName": "Čále Ođđa Nama",
+  "textHintDescription": "Čále Ođđa Čilgehusa",
   "invalidValue": "Tekstfeltet må ha en verdi",
 
   "dashboardNavTitle": "Boallobeavdi",
@@ -29,7 +29,7 @@
 
   "units": "Enheter",
   "mySettings": "Heivehusat",
-  "myBluetoothDevices": "Tilknytt enheter",
+  "myBluetoothDevices": "Čana Ovttadagaid",
 
   "tempOff": "Jáddat",
   "tempLow": "Lav",
@@ -37,10 +37,10 @@
   "tempHigh": "Sterk",
 
   "tabStandards": "Standardvalg",
-  "tabCustom": "Tilpass selv",
+  "tabCustom": "Heivet Ieš",
 
-  "heatGlove": "Varmehansker",
-  "battery": "Batteri",
+  "heatGlove": "Liggenhánskát",
+  "battery": "Báhtter",
   "stepChoice": "Valg av varmesteg",
   "customize": "Juster selv",
   "stdrdGloveDesc": "Varmehanske fra At Ease",
