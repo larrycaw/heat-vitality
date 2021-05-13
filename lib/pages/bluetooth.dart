@@ -44,6 +44,7 @@ class _BluetoothState extends State<Bluetooth> {
         }
       });
     });
+    sharedPreference.saveGlove(glove);
   }
 
   void disconnectBluetoothDevice(Glove glove) {
@@ -63,6 +64,7 @@ class _BluetoothState extends State<Bluetooth> {
     glove.removeDeviceFromMyDevices();
     if (glove.isConnected) disconnectBluetoothDevice(glove);
     print('Device forgotten');
+    sharedPreference.removeGlove(glove);
   }
 
   @override

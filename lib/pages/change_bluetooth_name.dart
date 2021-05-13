@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 
 class ChangeBluetoothName extends StatelessWidget {
 
@@ -21,6 +22,7 @@ class ChangeBluetoothName extends StatelessWidget {
     // Save and go back to previous page
     void changeValue() {
       glove.setName = newValueController.text;
+      sharedPreference.saveGlove(glove);
       Navigator.pop(context);
     }
 

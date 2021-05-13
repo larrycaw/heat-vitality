@@ -37,12 +37,12 @@ class SharedPreference {
             key: gloveList[0],
             name: gloveList[1],
             desc: gloveList[2],
-            battery: gloveList[3] as int,
-            heatStep: gloveList[4] as int,
-            heatCustom: gloveList[5] as double,
+            battery: int.parse(gloveList[3]),
+            heatStep: int.parse(gloveList[4]),
+            heatCustom: double.parse(gloveList[5]),
             myDevice: true,
             isConnecting: false,
-            isConnected: gloveList[6] as bool,
+            isConnected: gloveList[6] == "true",
           ),);
         }
       }
@@ -114,10 +114,10 @@ class SharedPreference {
     String key = glove.getKey;
     String name = glove.getName;
     String desc = glove.getDesc;
-    String battery = glove.getBattery;
-    String heatStep = glove.getHeatStep;
-    String heatCustom = glove.getHeatCustom;
-    String isConnected = glove.getIsConnected;
+    String battery = glove.getBattery.toString();
+    String heatStep = glove.getHeatStep.toString();
+    String heatCustom = glove.getHeatCustom.toString();
+    String isConnected = glove.getIsConnected.toString();
 
     List<String> value = [key, name, desc, battery, heatStep, heatCustom, isConnected];
     prefs.setStringList(key, value);
