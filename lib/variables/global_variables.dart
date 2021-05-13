@@ -1,5 +1,6 @@
 library led_controller.globals;
 import 'package:heat_vitality/classes/glove.dart';
+import 'package:heat_vitality/classes/shared_preference.dart';
 
 
 // _____________Constants_____________
@@ -31,6 +32,9 @@ final int highHeat = 100;
 
 
 // _____________Variables_____________
+// Shared preference
+SharedPreference sharedPreference = new SharedPreference();
+
 // Gloves
 List<Glove> gloves = Glove.getGloves();
 
