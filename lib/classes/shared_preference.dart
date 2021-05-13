@@ -45,6 +45,7 @@ class SharedPreference {
           isConnected: gloveList[6] as bool,
         ),);
       }
+      else gloves = [];
     }
   }
 
