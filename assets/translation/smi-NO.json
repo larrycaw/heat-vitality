@@ -17,7 +17,7 @@
   "saveButton": "Vurke",
   "textHintName": "Čále Ođđa Nama",
   "textHintDescription": "Čále Ođđa Čilgehusa",
-  "invalidValue": "Tekstfeltet må ha en verdi",
+  "invalidValue": "Ferte Leat Árvu",
 
   "dashboardNavTitle": "Boallobeavdi",
 
@@ -27,22 +27,20 @@
   "darkModeOff": "Jáddat",
   "language": "Giela",
 
-  "units": "Enheter",
+  "units": "Ovttadagat",
   "mySettings": "Heivehusat",
   "myBluetoothDevices": "Čana Ovttadagaid",
 
   "tempOff": "Jáddat",
-  "tempLow": "Lav",
-  "tempMedium": "Middels",
-  "tempHigh": "Sterk",
+  "tempLow": "Svednjes",
+  "tempMedium": "Gaskageardán",
+  "tempHigh": "Čuvges",
 
-  "tabStandards": "Standardvalg",
+  "tabStandards": "Dábálašválga",
   "tabCustom": "Heivet Ieš",
 
   "heatGlove": "Liggenhánskát",
   "battery": "Báhtter",
-  "stepChoice": "Valg av varmesteg",
-  "customize": "Juster selv",
-  "stdrdGloveDesc": "Varmehanske fra At Ease",
-  "connectToStart": "Koble til en enhet for å komme i gang"
+  "stdrdGloveDesc": "Liggenhánskát fra At Ease",
+  "connectToStart": "Čana Ovttadaga Joatkindihtte"
 }
