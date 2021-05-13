@@ -3,11 +3,13 @@ import 'glove.dart';
 
 class SharedPreference {
   String gloveKeyListKey;
-  List<Glove> gloves;
+  static List<String> gloveKeys = [];
+  static List<Glove> gloves = [];
 
   SharedPreference() {
     this.gloveKeyListKey = "gloveKeyListKey";
-    this.gloves = [];
+    readGloveKeys();
+    readGloves();
   }
 
   get getGloveKeyListKey => gloveKeyListKey;
@@ -16,36 +18,75 @@ class SharedPreference {
 
 
   // Read glove keys
-  Future<List<String>> readGloveKeys() async {
+  void readGloveKeys() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> gloveKeys = prefs.getStringList(gloveKeyListKey) ?? [];
-
-    return gloveKeys;
+    gloveKeys = prefs.getStringList(gloveKeyListKey) ?? [];
+    print("Glove keys read: $gloveKeys");
   }
 
   // Read saved gloves from shared preference, (return [] if no data)
   void readGloves() async {
-    List<String> gloveKeys = await readGloveKeys();
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    for (String gloveKey in gloveKeys) {
-      List<String> gloveList = prefs.getStringList(gloveKey) ?? [];
-      print("Glove list: $gloveList");
+    if ("$gloveKeys" != "[]") {
+      for (String gloveKey in gloveKeys) {
+        List<String> gloveList = prefs.getStringList(gloveKey) ?? [];
 
-      if (gloveList != []) {
-        gloves.add(new Glove(
-          key: gloveList[0],
-          name: gloveList[1],
-          desc: gloveList[2],
-          battery: gloveList[3] as int,
-          heatStep: gloveList[4] as int,
-          heatCustom: gloveList[5] as double,
-          myDevice: true,
-          isConnecting: false,
-          isConnected: gloveList[6] as bool,
-        ),);
+        if (gloveList != []) {
+          gloves.add(new Glove(
+            key: gloveList[0],
+            name: gloveList[1],
+            desc: gloveList[2],
+            battery: gloveList[3] as int,
+            heatStep: gloveList[4] as int,
+            heatCustom: gloveList[5] as double,
+            myDevice: true,
+            isConnecting: false,
+            isConnected: gloveList[6] as bool,
+          ),);
+        }
       }
-      else gloves = [];
+    }
+    else if ("$gloveKeys" == "[]") {
+      //gloves = [];
+
+      //Test data
+      print('Get test data');
+      gloves = [
+        new Glove(
+          key: "111",
+          name: "Isak",
+          desc: "Varmehanske fra At Ease",
+          battery: 100,
+          heatStep: 0,
+          heatCustom: 0,
+          myDevice: false,
+          isConnecting: false,
+          isConnected: false,
+        ),
+        new Glove(
+          key: "222",
+          name: "Adrian",
+          desc: "Varmehanske fra At Ease",
+          battery: 40,
+          heatStep: 0,
+          heatCustom: 0,
+          myDevice: false,
+          isConnecting: false,
+          isConnected: false,
+        ),
+        new Glove(
+          key: "333",
+          name: "Markus Solheim",
+          desc: "Varmehanske fra At Ease",
+          battery: 69,
+          heatStep: 0,
+          heatCustom: 0,
+          myDevice: false,
+          isConnecting: false,
+          isConnected: false,
+        ),
+      ];
     }
   }
 
@@ -53,7 +94,7 @@ class SharedPreference {
 
   // Save/update glove keys, (that are registered as myDevice)
   void saveGloveKeys() async {
-    List<String> gloveKeys = [];
+    gloveKeys = [];
 
     for (Glove glove in gloves) {
       if (glove.getMyDeviceState) {

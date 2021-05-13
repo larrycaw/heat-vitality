@@ -22,6 +22,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    gloves = sharedPreference.getGloves;
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
