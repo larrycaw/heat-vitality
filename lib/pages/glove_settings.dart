@@ -61,6 +61,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                         title: Text(options[0]),
                         onChanged: (val) {
                           glove.setHeatStep = val;
+                          sharedPreference.saveGlove(glove);
                           print("Pressed radio: " + options[0]);
                           setState(() {});
                         },
@@ -73,6 +74,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                         title: Text(options[1]),
                         onChanged: (val) {
                           glove.setHeatStep = val;
+                          sharedPreference.saveGlove(glove);
                           print("Pressed radio: " + options[1]);
                           setState(() {});
                         },
@@ -85,6 +87,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                         title: Text(options[2]),
                         onChanged: (val) {
                           glove.setHeatStep = val;
+                          sharedPreference.saveGlove(glove);
                           print("Pressed radio: " + options[2]);
                           setState(() {});
                         },
@@ -97,6 +100,7 @@ class _GloveSettingsState extends State<GloveSettings> {
                         title: Text(options[3]),
                         onChanged: (val) {
                           glove.setHeatStep = val;
+                          sharedPreference.saveGlove(glove);
                           print("Pressed radio: " + options[3]);
                           setState(() {});
                         },
@@ -144,6 +148,9 @@ class _GloveSettingsState extends State<GloveSettings> {
                               else
                                 glove.setHeatCustom = val;
                               setState(() {});
+                            },
+                            onValueChangeEnd: (val) {
+                              sharedPreference.saveGlove(glove);
                             },
                             markerHeight: 40,
                             markerWidth: 40,

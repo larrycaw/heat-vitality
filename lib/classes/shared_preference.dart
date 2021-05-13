@@ -121,6 +121,9 @@ class SharedPreference {
 
     List<String> value = [key, name, desc, battery, heatStep, heatCustom, isConnected];
     prefs.setStringList(key, value);
+
+    // Update keys
+    saveGloveKeys();
     print('Glove saved $value');
   }
 
