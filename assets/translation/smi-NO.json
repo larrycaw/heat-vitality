@@ -1,40 +1,40 @@
 {
-  "currentLanguage": "Norsk",
+  "currentLanguage": "Sámegilli",
   "appTitle": "HeatVitality",
 
   "bluetoothNavTitle": "Bluetooth",
-  "myDevices": "Mine Enheter",
-  "otherDevices": "Enheter i nærheten",
-  "connected": "Tilkoblet",
-  "notConnected": "Ikke tilkoblet",
+  "myDevices": "Mu Ovttadat",
+  "otherDevices": "Eará Ovttadagat",
+  "connected": "Čatnasan",
+  "notConnected": "Boatkanan",
   "noDevicesNearby": "Ingen enheter i nærheten",
 
-  "about": "Om",
-  "name": "Navn",
-  "description": "Beskrivelse",
-  "forgetDevice": "Glem denne enheten",
+  "about": "Birra",
+  "name": "Namahus",
+  "description": "Čilgehus",
+  "forgetDevice": "Vajálduhtte Dán Ovttadaga",
 
   "saveButton": "Lagre",
   "textHintName": "Skriv inn et nytt navn",
   "textHintDescription": "Skriv inn en ny beskrivelse",
   "invalidValue": "Tekstfeltet må ha en verdi",
 
-  "dashboardNavTitle": "Dashbord",
+  "dashboardNavTitle": "Boallobeavdi",
 
-  "settingsNavTitle": "Innstillinger",
-  "darkMode": "Mørk modus",
-  "darkModeOn": "På",
-  "darkModeOff": "Av",
-  "language": "Språk",
+  "settingsNavTitle": "Heivehusat",
+  "darkMode": "Sevdnjes Modus",
+  "darkModeOn": "Ala",
+  "darkModeOff": "Jáddat",
+  "language": "Giela",
 
   "units": "Enheter",
-  "mySettings": "Instillinger",
+  "mySettings": "Heivehusat",
   "myBluetoothDevices": "Tilknytt enheter",
 
-  "tempOff": "Av",
+  "tempOff": "Jáddat",
   "tempLow": "Lav",
   "tempMedium": "Middels",
-  "tempHigh": "Høy",
+  "tempHigh": "Sterk",
 
   "tabStandards": "Standardvalg",
   "tabCustom": "Tilpass selv",
@@ -43,7 +43,6 @@
   "battery": "Batteri",
   "stepChoice": "Valg av varmesteg",
   "customize": "Juster selv",
-  "stdrdGloveDesc": "Varmehansker fra At Ease",
+  "stdrdGloveDesc": "Varmehanske fra At Ease",
   "connectToStart": "Koble til en enhet for å komme i gang"
-
 }

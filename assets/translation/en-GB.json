@@ -4,14 +4,20 @@
 
   "bluetoothNavTitle": "Bluetooth",
   "myDevices": "My Devices",
-  "otherDevices": "Other Devices",
+  "otherDevices": "Devices nearby",
   "connected": "Connected",
   "notConnected": "Not connected",
+  "noDevicesNearby": "No devices nearby",
 
   "about": "About",
-  "title": "Name",
+  "name": "Name",
   "description": "Description",
   "forgetDevice": "Forget this device",
+
+  "saveButton": "Save",
+  "textHintName": "Enter a new name",
+  "textHintDescription": "Enter a new description",
+  "invalidValue": "The textfield must have a value",
 
   "dashboardNavTitle": "Dashboard",
 
@@ -25,6 +31,7 @@
   "mySettings": "Settings",
   "myBluetoothDevices": "Connect to devices",
 
+  "tempOff": "Off",
   "tempLow": "Low",
   "tempMedium": "Medium",
   "tempHigh": "High",
@@ -32,7 +39,10 @@
   "tabStandards": "Standards",
   "tabCustom": "Custom",
 
-  "heatGlove": "Heat glove",
+  "heatGlove": "Heat gloves",
   "battery": "Battery",
-  "stepChoice": "Choice of heat steps"
+  "stepChoice": "Choice of heat steps",
+  "customize": "Adjust yourself",
+  "stdrdGloveDesc": "Heat Glove from At Ease",
+  "connectToStart": "Connect to a device to get started"
 }

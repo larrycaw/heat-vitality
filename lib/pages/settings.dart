@@ -22,8 +22,8 @@ class _SettingsState extends State<Settings> {
       case 'Norsk':
         context.locale = Locale('no', 'NO');
         break;
-      case 'Sámi':
-        //context.locale = Locale('smi', 'NO');
+      case 'Sámegilli':
+        context.locale = Locale('smi', 'NO');
         break;
     }
   }

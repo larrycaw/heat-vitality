@@ -1,43 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:heat_vitality/classes/glove.dart';
 
 class BtListElement extends StatelessWidget {
 
-  final String bdAddr;
-  final bool myDeviceState;
-  final bool isConnected;
-  final Function(bool) onConnectingStateChange;
-  final VoidCallback onAddDevice;
+  final Glove glove;
+  final VoidCallback onConnect;
+  final VoidCallback onDisconnect;
   final VoidCallback onForgetDevice;
   final VoidCallback onUpdateBluetoothDevice;
-  final String title;
-  final String description;
-  final bool isConnecting;
-  final String iconImage;
 
   BtListElement({
-    @required this.bdAddr,
-    @required this.myDeviceState,
-    @required this.isConnected,
-    @required this.onConnectingStateChange,
-    this.onAddDevice,
+    @required this.glove,
+    @required this.onConnect,
+    @required this.onDisconnect,
     this.onForgetDevice,
     this.onUpdateBluetoothDevice,
-    this.title = 'Bluetooth device',
-    this.description = 'Unknown',
-    this.isConnecting = false,
-    this.iconImage = 'bt.jpg',
   });
 
-
-  bool getIsConnected() {
-    return this.isConnected;
-  }
-
-  bool getMyDeviceState() {
-    return this.myDeviceState;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +32,13 @@ class BtListElement extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           print('Bt element tapped');
-          onConnectingStateChange(getIsConnected());
+          if(glove.myDevice) {
+            if(glove.getIsConnected) onDisconnect();
+            else onConnect();
+          }
+          else {
+            onConnect();
+          }
         },
         style: ElevatedButton.styleFrom(
           primary: Colors.white,
@@ -68,7 +55,7 @@ class BtListElement extends StatelessWidget {
                     children: [
                       SizedBox(width: 12,),
                       Text(
-                        title,
+                        glove.getName,
                         style: TextStyle(
                           fontSize: 15,
                         ),
@@ -79,7 +66,7 @@ class BtListElement extends StatelessWidget {
                     children: [
                       SizedBox(width: 12,),
                       Text(
-                        description,
+                        glove.getDesc,
                         style: TextStyle(
                             color: Colors.grey[700]
                         ),
@@ -92,13 +79,13 @@ class BtListElement extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                isConnecting ?
+                glove.getIsConnecting ?
                 SpinKitRing(//SpinKitPumpingHeart / SpinKitFadingCube
                   color: Color(0XFF67d0c6),
                   size: 25.0,
                 ) :
                 Text(
-                  getIsConnected() ? 'connected'.tr() : 'notConnected'.tr(),
+                  glove.getIsConnected ? 'connected'.tr() : 'notConnected'.tr(),
                   style: TextStyle(
                       color: Colors.grey[700]
                   ),
@@ -109,18 +96,18 @@ class BtListElement extends StatelessWidget {
             GestureDetector(
                 onTap: () async {
                   print('Icon tapped');
-                  if (getMyDeviceState()) {
+                  if (glove.getMyDeviceState) {
                     dynamic result = await Navigator.pushNamed(
                       context,
                       "/about_bluetooth_device",
-                      arguments: <String, String>{'bdAddr': bdAddr},
+                      arguments: <String, Glove>{'glove': glove},
                     );
                     if(result != null) {
                       if (result['forgetDevice']) onForgetDevice();
                     } else onUpdateBluetoothDevice();
-                  } else if(!getMyDeviceState()) onAddDevice();
+                  }
                 },
-                child: getMyDeviceState() ? Icon(Icons.arrow_forward_ios, size: 22) : Icon(Icons.add, size: 28,)
+                child: glove.getMyDeviceState ? Icon(Icons.arrow_forward_ios, size: 22) : Icon(null),
             ),
             SizedBox(width: 20,)
           ],
