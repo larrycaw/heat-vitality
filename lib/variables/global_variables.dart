@@ -36,7 +36,7 @@ final int highHeat = 100;
 SharedPreference sharedPreference = new SharedPreference();
 
 // Gloves
-List<Glove> gloves = Glove.getGloves();
+List<Glove> gloves = [];//sharedPreference.readGloves();//Glove.getGloves();
 
 // Dark mode
 bool darkModeOn = false;

@@ -1,15 +1,17 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'glove.dart';
-import 'package:heat_vitality/variables/global_variables.dart';
 
 class SharedPreference {
   String gloveKeyListKey;
+  List<Glove> gloves;
 
   SharedPreference() {
     this.gloveKeyListKey = "gloveKeyListKey";
+    this.gloves = [];
   }
 
   get getGloveKeyListKey => gloveKeyListKey;
+  get getGloves => gloves;
 
 
 
@@ -22,13 +24,13 @@ class SharedPreference {
   }
 
   // Read saved gloves from shared preference, (return [] if no data)
-  Future<List<Glove>> readSavedGloves() async {
-    List<Glove> gloves = [];
+  void readGloves() async {
     List<String> gloveKeys = await readGloveKeys();
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     for (String gloveKey in gloveKeys) {
       List<String> gloveList = prefs.getStringList(gloveKey) ?? [];
+      print("Glove list: $gloveList");
 
       if (gloveList != []) {
         gloves.add(new Glove(
@@ -44,8 +46,6 @@ class SharedPreference {
         ),);
       }
     }
-
-    return gloves;
   }
 
 

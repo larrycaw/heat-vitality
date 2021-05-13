@@ -32,7 +32,7 @@ class Glove {
         battery: 100,
         heatStep: 0,
         heatCustom: 0,
-        myDevice: true,
+        myDevice: false,
         isConnecting: false,
         isConnected: false,
       ),
