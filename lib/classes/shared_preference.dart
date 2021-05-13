@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'glove.dart';
+import 'package:heat_vitality/variables/global_variables.dart';
 
 class SharedPreference {
   String gloveKeyListKey;
@@ -50,7 +51,7 @@ class SharedPreference {
 
 
   // Save/update glove keys, (that are registered as myDevice)
-  void saveGloveKeys(List<Glove> gloves) async {
+  void saveGloveKeys() async {
     List<String> gloveKeys = [];
 
     for (Glove glove in gloves) {
@@ -89,20 +90,6 @@ class SharedPreference {
     await prefs.remove(glove.getKey);
 
     // Update keys
-    //saveGloveKeys(gloves);
-  }
-
-
-
-
-
-
-
-  // Read data
-  void read() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'my_string_list_key';
-    final myStringList = prefs.getStringList(key) ?? [];
-    print('read: $myStringList');
+    saveGloveKeys();
   }
 }
