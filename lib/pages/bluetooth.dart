@@ -30,9 +30,7 @@ class _BluetoothState extends State<Bluetooth> {
   }
 
   void connectBluetoothDevice(Glove glove) {
-    setState(() {
-      glove.startConnecting();
-    });
+    setState(() => glove.startConnecting());
     Timer(Duration(seconds: 3), () {
       setState(() {
         glove.stopConnecting();
@@ -40,21 +38,20 @@ class _BluetoothState extends State<Bluetooth> {
         print('Bt device connected');
         if (!glove.myDevice) {
           glove.addDeviceToMyDevices();
+          sharedPreference.saveGlove(glove);
           print('Device added');
         }
       });
     });
-    sharedPreference.saveGlove(glove);
   }
 
   void disconnectBluetoothDevice(Glove glove) {
-    setState(() {
-      glove.startConnecting();
-    });
+    setState(() => glove.startConnecting());
     Timer(Duration(seconds: 1), () {
       setState(() {
         glove.stopConnecting();
         glove.disconnect();
+        sharedPreference.saveGlove(glove);
         print('Bt device disconnected');
       });
     });
