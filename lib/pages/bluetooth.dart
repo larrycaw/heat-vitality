@@ -38,9 +38,9 @@ class _BluetoothState extends State<Bluetooth> {
         print('Bt device connected');
         if (!glove.myDevice) {
           glove.addDeviceToMyDevices();
-          sharedPreference.saveGlove(glove);
           print('Device added');
         }
+        sharedPreference.saveGlove(glove);
       });
     });
   }
