@@ -23,43 +23,6 @@ class Glove {
     this.isConnected,
   });
 
-  // static List<Glove> getGloves() {
-  //   return <Glove>[
-  //     Glove(
-  //       key: "111",
-  //       name: "Isak",
-  //       desc: "Varmehanske fra At Ease",
-  //       battery: 100,
-  //       heatStep: 0,
-  //       heatCustom: 0,
-  //       myDevice: false,
-  //       isConnecting: false,
-  //       isConnected: false,
-  //     ),
-  //     Glove(
-  //       key: "222",
-  //       name: "Adrian",
-  //       desc: "Varmehanske fra At Ease",
-  //       battery: 40,
-  //       heatStep: 0,
-  //       heatCustom: 0,
-  //       myDevice: false,
-  //       isConnecting: false,
-  //       isConnected: false,
-  //     ),
-  //     Glove(
-  //       key: "333",
-  //       name: "Markus Solheim",
-  //       desc: "Varmehanske fra At Ease",
-  //       battery: 69,
-  //       heatStep: 0,
-  //       heatCustom: 0,
-  //       myDevice: false,
-  //       isConnecting: false,
-  //       isConnected: false,
-  //     ),
-  //   ];
-  // }
 
   get getKey => this.key;
 

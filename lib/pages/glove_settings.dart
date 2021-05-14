@@ -4,14 +4,12 @@ import 'package:heat_vitality/variables/global_variables.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-//enum heatSteps {low, medium, high}
-
 class GloveSettings extends StatefulWidget {
   @override
   _GloveSettingsState createState() => _GloveSettingsState();
 }
 
-// kilder:
+// Sources:
 // https://flutter.dev/docs/cookbook/design/tabs
 class _GloveSettingsState extends State<GloveSettings> {
   List<String> options = [
@@ -46,13 +44,12 @@ class _GloveSettingsState extends State<GloveSettings> {
                   ),
                   leading: IconButton(
                     icon: Icon(Icons.arrow_back),
-                    onPressed: () => Navigator.pop(context), //denne må rettes
+                    onPressed: () => Navigator.pop(context),
                   )),
 
               //Tab-innhold
               body: TabBarView(
                 children: [
-                  //Text("Trinnmeny"), //add radio-menu here
                   Column(
                     children: <Widget>[
                       RadioListTile(

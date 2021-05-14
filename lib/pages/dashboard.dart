@@ -27,8 +27,7 @@ class _DashboardState extends State<Dashboard> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        // Tilkoblede produkter
-        // (Fremtidig forbedring: hente enheter fra liste generert fra tilkoblede enheter)
+        // Connected devices
         body: Container(
           margin: const EdgeInsets.all(20.0),
           child: isConnected()
@@ -38,7 +37,6 @@ class _DashboardState extends State<Dashboard> {
                       'units'.tr(),
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                      //textAlign: TextAlign.left,
                     ),
                     for (Glove glove in gloves)
                       if (glove.getIsConnected)
@@ -77,7 +75,7 @@ class _DashboardState extends State<Dashboard> {
                       style: TextStyle(fontSize: 16)),
                 ),
         ),
-        // Navigasjonsbar på bunnen av siden
+        // Navigation bar at the bottom of the page
         bottomNavigationBar: BottomAppBar(
             child: Row(children: [
               IconButton(
@@ -86,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                         context,
                         MaterialPageRoute(builder: (context) => Settings()),
                       ).then((value) => setState(
-                          () {})), //Navigator.pushNamed(context, "/settings"),
+                          () {})),
                   color: Colors.white)
             ]),
             color: Color(0xFF6223EE)),
@@ -96,7 +94,7 @@ class _DashboardState extends State<Dashboard> {
                   context,
                   MaterialPageRoute(builder: (context) => Bluetooth()),
                 ).then((value) =>
-                    setState(() {})), //Navigator.pushNamed(context, "/"),
+                    setState(() {})),
             backgroundColor: Color(0xFF03DAC5),
             foregroundColor: Colors.black),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,

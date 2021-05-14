@@ -14,6 +14,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  // Case for every language option, (remember to also change at main.dart)
   void setLanguage(String newLanguage) {
     switch (newLanguage) {
       case 'English':
@@ -28,7 +29,6 @@ class _SettingsState extends State<Settings> {
     }
   }
 
-//https://api.flutter.dev/flutter/material/DropdownButton-class.html
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,52 +49,6 @@ class _SettingsState extends State<Settings> {
             ),
           )),
           Container(
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey[300]),
-              ),
-            ),
-            //padding: EdgeInsets.only(top: 130, bottom: 30),
-            child: Row(
-              children: [
-                Row(
-                  children: [
-                    SizedBox(width: 20),
-                    Text(
-                      "darkMode".tr() + ":",
-                      style: TextStyle(
-                        fontSize: 22,
-                      ),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Transform.scale(
-                        scale: 1.3,
-                        child: Switch(
-                          value: darkModeOn,
-                          onChanged: (value) {
-                            setState(() {
-                              darkModeOn = value;
-                              print(darkModeOn);
-                            });
-                          },
-                          activeTrackColor: Colors.deepPurpleAccent[100],
-                          activeColor: Color(0XFF571fe4),
-                        ),
-                      ),
-                      SizedBox(width: 25),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            //padding: EdgeInsets.only(top: 30, bottom: 10),
             child: Row(
               children: [
                 Row(
@@ -116,8 +70,6 @@ class _SettingsState extends State<Settings> {
                         padding: EdgeInsets.only(left: 16, right: 16),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          //border: Border.all(color: Colors.black, width: 1),
-                          //borderRadius: BorderRadius.circular(15),
                         ),
                         child: DropdownButton(
                           dropdownColor: Colors.white,
@@ -132,7 +84,6 @@ class _SettingsState extends State<Settings> {
                           onChanged: (newLanguage) {
                             setState(() {
                               print('New language: $newLanguage');
-                              //this.widget.newLanguage(newLanguage);
                               setLanguage(newLanguage);
                             });
                           },

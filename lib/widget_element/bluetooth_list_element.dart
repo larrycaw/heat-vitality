@@ -80,7 +80,7 @@ class BtListElement extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 glove.getIsConnecting ?
-                SpinKitRing(//SpinKitPumpingHeart / SpinKitFadingCube
+                SpinKitRing(
                   color: Color(0XFF67d0c6),
                   size: 25.0,
                 ) :

@@ -35,7 +35,7 @@ final int highHeat = 100;
 // Shared preference
 SharedPreference sharedPreference = new SharedPreference();
 
-// Gloves
+// Gloves, variable used through the application
 List<Glove> gloves = [];
 
 // Dark mode

@@ -17,13 +17,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      /*title: Text(
-        'HeatVitality',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-        ),
-      ),*/
       centerTitle: true,
       backgroundColor: Color(0XFF571fe4),
       elevation: 0,
