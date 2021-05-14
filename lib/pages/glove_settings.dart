@@ -148,8 +148,6 @@ class _GloveSettingsState extends State<GloveSettings> {
                               else
                                 glove.setHeatCustom = val;
                               setState(() {});
-                            },
-                            onValueChangeEnd: (val) {
                               sharedPreference.saveGlove(glove);
                             },
                             markerHeight: 40,
