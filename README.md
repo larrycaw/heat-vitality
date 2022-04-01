@@ -6,7 +6,7 @@ Heat Vitality was developed as a part of our bachelor thesis while working close
 
 This project is deployed on Google Play Store
 
-`https://play.google.com/store/apps/details?id=com.atease.heat_vitality`
+https://play.google.com/store/apps/details?id=com.atease.heat_vitality
 
 
 ## Tech stack
