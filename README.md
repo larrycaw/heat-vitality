@@ -1,16 +1,14 @@
-# heat_vitality
+# Heat Vitality
 
-A new Flutter project.
+Heat Vitality was developed as a part of our bachelor thesis while working closely with a private sector client. Our client desired an application that would control the heat in warming gloves for people suffering from Raynaud's phenomenon.
 
-## Getting Started
+## Deployment
 
-This project is a starting point for a Flutter application.
+This project is deployed on Google Play Store
+https://play.google.com/store/apps/details?id=com.atease.heat_vitality
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech stack
+- Framework: Flutter
+- Language: Dart
+- Design libraries: Material design
